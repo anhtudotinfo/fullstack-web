@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Toolbar, Typography, CssBaseline, alpha, makeStyles, Button, Drawer,
-Box, Modal, TextField } from "@material-ui/core";
+Box, Modal, TextField, Backdrop, Fade } from "@material-ui/core";
 
 import { NavLink } from "react-router-dom";
 import {Link} from "@material-ui/core";
 import { useHistory, useParams } from 'react-router-dom';
 import axiosInstance from "../Axios";
+import splash from './splash.jpg';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -24,7 +25,22 @@ const useStyles = makeStyles((theme) => ({
         padding: '4px',
         flexDirection: 'right',
     },
-}))
+    paper: {
+        outline: 'none',
+    },
+    '@keyframes fadeIn': {
+        '0%': {
+            opacity: 0,
+        },
+        '100%':{
+            opacity: 1,
+        },
+    },
+    fadeIn: {
+        animation: '$fadeIn 0.2s',
+    },
+
+}));
 
 const style = {
     position: 'absolute',
@@ -35,9 +51,14 @@ const style = {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    p: 1.5,
   };
-//
+
+// Note -> for deposit func Max. limit = $1500. 
+// If you attempt to add an amount exceeding $1500 - this will trigger the time-out interval and you will not be able to add any more! 
+
+
+
 export default function Bar() {
     // const [isLog, setIsLog] = useState(false);
 
@@ -115,7 +136,8 @@ export default function Bar() {
 
         axiosInstance.put(`bank-accounts/edit/`+user_id+`/`, {
             bank_account_balance: a.amount,
-        });
+        });    
+        alert("Operation Complete!");
         })
         // axiosInstance.put(`bank-accounts/edit/93/` , {
         //     bank_account_balance: a.amount,
@@ -191,31 +213,53 @@ export default function Bar() {
                      style={{ display: 'flexbox', marginTop: '20px' ,width: '200px', fontSize: '14px' , fontFamily: 'Fira Code'}}>+ Bank Balance</Button>
 
                     <Modal
+                    className={`${classes.fadeIn}`}
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
-                    >
-                        <Box sx={style}>
-                        <Typography id="modal-modal-title" variant="h6" component="h2">
-            User Deposit Amount
+                    style={{textAlign: 'center'}}
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                        timeout: 500,
+                    }}
+                    >   
+                        <Fade in={open}>
+                        <div className={classes.paper}>
+
+                        <Box sx={style} style={{backgroundImage: `url(${splash})`}}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2" style={{marginBottom: '20px', fontFamily: 'Fira Code'}}>
+            USER DEPOSIT AMOUNT
           </Typography>
           
-          <TextField
-          required
-          id="amount"
-          name="amount"
-          autoComplete="amount"
-          value={a.amount}
-          onChange={handleChanges}
-          ></TextField>
+        <TextField
+        required
+        id="amount"
+        name="amount"
+        autoComplete="amount"
+        value={a.amount}
+        onChange={handleChanges}
+        style={{fontFamily: 'Fira Code'}}
+        ></TextField>
 
-          <Button
-          type="submit"
-          onClick={handleDeposit}
-          >Confirm</Button>
+        <Typography style={{marginTop: '15px', marginBottom: '10px', fontSize: '14px', fontFamily: 'Fira Code', color: 'indigo'}}
+        >NOTE: MAX VALUE = $1500 </Typography>
+
+        <Typography style={{fontSize: '12px', fontFamily: 'Fira Code', color: 'crimson'}}>IF YOU ATTEMPT TO ADD AN AMOUNT EXCEEDING $1500 OR NULL - 
+        THIS WILL TRIGGER A TIME-OUT INTERVAL AND YOU WILL NOT BE ABLE TO ADD ANY MORE! </Typography>
+        
+        
+        <Button
+        type="submit"
+        variant="outlined"
+        color="primary"
+        style={{marginLeft: '250px', marginTop: '20px', fontFamily: 'Fira Code'}}
+        onClick={handleDeposit}
+        >Confirm</Button>
 
                         </Box>
+                        </div>
+                        </Fade>
                     </Modal>
 
                         </Box>
