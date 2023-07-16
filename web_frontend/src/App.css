@@ -361,3 +361,17 @@ width: 400px;
 text-align: center;
 
 }
+
+
+.neonText {
+	color: #e2131393;
+	text-shadow:
+	0 0 7px #ca8181,
+	0 0 10px #fff,
+	0 0 21px #fff,
+	0 0 42px rgb(16, 17, 17),
+	0 0 82px rgba(44, 70, 62, 0.678),
+	0 0 92px rgb(196, 71, 185),
+	0 0 102px rgb(172, 19, 185),
+	0 0 151px #0fa;
+}

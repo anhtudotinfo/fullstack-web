@@ -60,7 +60,7 @@ const rowsPerPageOptions = [10, 20, 50];
             <Button to="/home" href="#" component={NavLink} variant="contained" color="secondary" startIcon={<ArrowBack/>} 
             style={{marginLeft: '20px', marginTop: '20px', fontFamily: 'Fira Code', backgroundColor: 'crimson'}}>Back</Button>
            
-           <Typography style={{textAlign: 'center', fontSize: '28px', fontFamily: 'Fira Code'
+           <Typography className="neonText" style={{textAlign: 'center', fontSize: '32px', fontFamily: 'Fira Code'
         , color: 'seashell'}}>MY INBOX</Typography>
 
         <TableContainer component={Paper}  style={{
@@ -70,8 +70,8 @@ const rowsPerPageOptions = [10, 20, 50];
             <Table style={{minWidth: 650}}>
                 <TableHead style={{display: 'flexbox'}}>
                     <TableRow>
-                        <TableCell>id</TableCell>
-                        <TableCell style={{paddingLeft: '700px'}}>Code</TableCell>
+                        <TableCell style={{fontFamily: 'Fira Code'}}>id</TableCell>
+                        <TableCell style={{paddingLeft: '700px', fontFamily: 'Fira Code'}}>Code</TableCell>
                     </TableRow>
                 </TableHead>
 
@@ -80,8 +80,8 @@ const rowsPerPageOptions = [10, 20, 50];
                         <TableRow 
                         key={row.id}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                            <TableCell component="th" scope="row">{row.id}</TableCell>
-                            <TableCell align="right">{row.code}</TableCell>
+                            <TableCell component="th" scope="row" style={{fontFamily: 'Fira Code'}}>{row.id}</TableCell>
+                            <TableCell align="right" style={{fontFamily: 'Fira Code'}}>{row.code}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
