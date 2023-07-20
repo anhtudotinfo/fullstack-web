@@ -7,6 +7,7 @@ import {Link} from "@material-ui/core";
 import { useHistory, useParams } from 'react-router-dom';
 import axiosInstance from "../Axios";
 import splash from './splash.jpg';
+import image from './side-splash.jpg';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -54,11 +55,6 @@ const style = {
     p: 1.5,
   };
 
-// Note -> for deposit func Max. limit = $1500. 
-// If you attempt to add an amount exceeding $1500 - this will trigger the time-out interval and you will not be able to add any more! 
-
-
-
 export default function Bar() {
     // const [isLog, setIsLog] = useState(false);
 
@@ -90,9 +86,10 @@ export default function Bar() {
                 value: res.data,
             });
             console.log(res.data);
-            const current_user = res.data.map(t => (t.user_bank_acc_id));
-            console.log(current_user[0]); // get the user_id 
-        }) }
+            // const current_user = res.data.map(t => (t.user_bank_acc_id));
+            // console.log(current_user[0]); // get the user_id 
+        }) 
+    }
     }, [setData]);
 
     useEffect(()=> {
@@ -106,6 +103,17 @@ export default function Bar() {
         }
     }, [setData2]);
 
+    // deposit handle
+
+    function onlyNumberKey(evt) {
+             
+        // Only ASCII character in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
+
     const initialData = Object.freeze({
         amount: '',
         
@@ -114,6 +122,14 @@ export default function Bar() {
     const [a, setB] = useState(initialData);
 
     const handleChanges = (e) => {
+
+    //     const regex = /^[1-9]\d*$/;
+    // if (regex.test(e.target.value)) {
+    //   setB(e.target.value);
+    // } else {
+    //   setB("");
+    // }
+
         setB({
             ...a,
             [e.target.name]: e.target.value
@@ -144,7 +160,7 @@ export default function Bar() {
         // });
     }
 
-    const classes = useStyles()
+    const classes = useStyles();
     
     return (
         
@@ -173,9 +189,11 @@ export default function Bar() {
                     <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}
                     
                     >
-                        <Box p={2} width='400px' textAlign='center' role="presentation">
+                        <Box p={2} width='400px' textAlign='center' role="presentation" 
+                        style={{backgroundImage: `url(${image})`, height: '950px', color: "white"}}>
                             
-                            <Typography variant="h6" component='div' style={{paddingBottom: '20px', fontFamily: 'Fira Code'}}>USER DASHBOARD</Typography>
+                            <Typography variant="h6" component='div' style={{paddingBottom: '15px',marginTop: '5px', fontFamily: 'Fira Code', 
+                            fontStyle: 'italic'}}>USER DASHBOARD</Typography>
 
                             <hr></hr>
 
@@ -206,10 +224,10 @@ export default function Bar() {
 
                      <hr></hr>
 
-                     <Button className={classes.button} color="secondary" variant="outlined" component={NavLink} href="#" to="/inbox"
+                     <Button className={classes.button} color="secondary" variant="contained" component={NavLink} href="#" to="/inbox"
                      style={{ display: 'flexbox', marginTop: '20px' ,width: '200px', fontSize: '14px' , fontFamily: 'Fira Code'}}>My Inbox</Button>
 
-                     <Button className={classes.button} color="secondary" variant="outlined" onClick={handleOpen}
+                     <Button className={classes.button} color="secondary" variant="contained" onClick={handleOpen}
                      style={{ display: 'flexbox', marginTop: '20px' ,width: '200px', fontSize: '14px' , fontFamily: 'Fira Code'}}>+ Bank Balance</Button>
 
                     <Modal
@@ -231,9 +249,12 @@ export default function Bar() {
                         <Typography id="modal-modal-title" variant="h6" component="h2" style={{marginBottom: '20px', fontFamily: 'Fira Code'}}>
             USER DEPOSIT AMOUNT
           </Typography>
-          
+        
+        <form noValidate>
         <TextField
         required
+        type="number"
+        label="Enter a value"
         id="amount"
         name="amount"
         autoComplete="amount"
@@ -246,8 +267,7 @@ export default function Bar() {
         >NOTE: MAX VALUE = $1500 </Typography>
 
         <Typography style={{fontSize: '12px', fontFamily: 'Fira Code', color: 'crimson'}}>IF YOU ATTEMPT TO ADD AN AMOUNT EXCEEDING $1500 OR NULL - 
-        THIS WILL TRIGGER A TIME-OUT INTERVAL AND YOU WILL NOT BE ABLE TO ADD ANY MORE! </Typography>
-        
+        THIS WILL TRIGGER A 1 DAY TIME-OUT INTERVAL! </Typography>
         
         <Button
         type="submit"
@@ -256,6 +276,7 @@ export default function Bar() {
         style={{marginLeft: '250px', marginTop: '20px', fontFamily: 'Fira Code'}}
         onClick={handleDeposit}
         >Confirm</Button>
+        </form>
 
                         </Box>
                         </div>
