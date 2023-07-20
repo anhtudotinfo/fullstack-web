@@ -38,6 +38,8 @@ class DepositIncrease(serializers.ModelSerializer):
 
         if value > 1500:
             raise serializers.ValidationError("Error! Value cannot exceed a maximum of 1500! If you try to add an amount exceeding 1500 - this will trigger the time-out interval and you will not be able to add any more funds!")
+        elif value < 0:
+            raise serializers.ValidationError("Negative integers are not allowed.")
         return value
 
     def update(self, instance, validated_data): # used to increase current value of bank account balance
