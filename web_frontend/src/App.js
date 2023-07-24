@@ -100,9 +100,11 @@ export default function App() {
 	// 	});
 	// };
 
+
   return (
 <ThemeProvider theme={theme}>
   <CssBaseline/>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet"></link>
     <Grid item style={{backgroundImage: `url(${animated1})`, backgroundSize: 'cover', 
 				backgroundRepeat: 'no-repeat', 
 				height: '100vh'}}> 
@@ -116,7 +118,7 @@ export default function App() {
       
       <div class="entry-page">
         <div class="neons" style={{display: 'flexbox', textAlign:'center', padding: '1px'}}>
-          <h3 style={{fontSize: '40px', color:'white'}}>Welcome to the AE-COIN Mining Platform and E-Store!</h3>
+          <h3 style={{fontSize: '40px', color:'white', fontFamily: 'Source Code Pro'}}>Welcome to the AE-COIN Mining Platform and E-Store!</h3>
 		  {/* <h4 style={{color: 'white'}}>Please log in or register to get started!</h4> */}
           <p class="line-1 anim-typewriter">Get Started!</p>
 

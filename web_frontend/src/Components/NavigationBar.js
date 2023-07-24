@@ -7,7 +7,7 @@ import {Link} from "@material-ui/core";
 import { useHistory, useParams } from 'react-router-dom';
 import axiosInstance from "../Axios";
 import splash from './splash.jpg';
-import image from './side-splash.jpg';
+import image from './animated2.gif';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -56,9 +56,9 @@ const style = {
   };
 
 export default function Bar() {
-    // const [isLog, setIsLog] = useState(false);
-
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [isLog, setIsLog] = useState(false);
+    const wait_time = 500;
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false); //Drawer component state
 
     // const handleLogin = () => {
     //     if (localStorage.getItem('access_token') !== null){
@@ -71,6 +71,20 @@ export default function Bar() {
     //         setIsLog(false);
     //     };
     // }
+
+    useEffect(() => {
+        const id = setInterval(() =>{
+            const token = localStorage.getItem('access_token');
+            if (token) {
+                setIsLog(true);
+            } else {
+                setIsLog(false);
+            }
+            console.log(isLog);
+        }, wait_time)
+        return () => clearInterval(id);
+    }, [isLog])
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -90,7 +104,7 @@ export default function Bar() {
             // console.log(current_user[0]); // get the user_id 
         }) 
     }
-    }, [setData]);
+    }, [setData, isDrawerOpen]);
 
     useEffect(()=> {
         if (localStorage.getItem('access_token') !==null){
@@ -101,18 +115,9 @@ export default function Bar() {
                 console.log(res.data);
             })
         }
-    }, [setData2]);
+    }, [setData2, isDrawerOpen]);
 
     // deposit handle
-
-    function onlyNumberKey(evt) {
-             
-        // Only ASCII character in that range allowed
-        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-            return false;
-        return true;
-    }
 
     const initialData = Object.freeze({
         amount: '',
@@ -154,6 +159,7 @@ export default function Bar() {
             bank_account_balance: a.amount,
         });    
         alert("Operation Complete!");
+        window.location.reload();
         })
         // axiosInstance.put(`bank-accounts/edit/93/` , {
         //     bank_account_balance: a.amount,
@@ -180,17 +186,19 @@ export default function Bar() {
                     <Typography style={{display: 'flexbox', marginBottom: '5px' , fontFamily: 'Fira Code', fontSize: '15px'}}
                     >AE-COIN Crypto-Commerce Power Platform</Typography>
                     
+                    {isLog &&
                     <Button className={classes.button} color="primary" variant="outlined" 
                     style={{marginLeft: '1300px', marginBottom: '5px', backgroundColor: 'whitesmoke' , fontFamily: 'Fira Code'}}
                     onClick={() => setIsDrawerOpen(true)}
                    
-                    >Dashboard</Button>
+                    >Dashboard</Button>}
 
                     <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}
                     
                     >
                         <Box p={2} width='400px' textAlign='center' role="presentation" 
-                        style={{backgroundImage: `url(${image})`, height: '950px', color: "white"}}>
+                        style={{backgroundImage: `url(${image})`, height: '950px', color: "white", backgroundSize: 'cover', 
+                        backgroundRepeat: 'no-repeat'}}>
                             
                             <Typography variant="h6" component='div' style={{paddingBottom: '15px',marginTop: '5px', fontFamily: 'Fira Code', 
                             fontStyle: 'italic'}}>USER DASHBOARD</Typography>
@@ -264,9 +272,9 @@ export default function Bar() {
         ></TextField>
 
         <Typography style={{marginTop: '15px', marginBottom: '10px', fontSize: '14px', fontFamily: 'Fira Code', color: 'indigo'}}
-        >NOTE: MAX VALUE = $1500 </Typography>
+        >NOTE: MAX DEPOSIT VALUE = $1500 </Typography>
 
-        <Typography style={{fontSize: '12px', fontFamily: 'Fira Code', color: 'crimson'}}>IF YOU ATTEMPT TO ADD AN AMOUNT EXCEEDING $1500 OR NULL - 
+        <Typography style={{fontSize: '12px', fontFamily: 'Fira Code', color: 'crimson'}}>EXCEPTIONS: NEGATIVE VALUES/NULL VALUES -
         THIS WILL TRIGGER A 1 DAY TIME-OUT INTERVAL! </Typography>
         
         <Button
@@ -277,22 +285,20 @@ export default function Bar() {
         onClick={handleDeposit}
         >Confirm</Button>
         </form>
-
                         </Box>
                         </div>
                         </Fade>
                     </Modal>
-
                         </Box>
-                        
                     </Drawer>
-
+                    
+                    {isLog &&
                    <Button to="/signout" className={classes.button} 
                     href="#" color="primary" variant="outlined" component={NavLink}     
                     style={{display:'flexbox', marginLeft: '35px', marginBottom: '5px', backgroundColor: 'whitesmoke'
                     , fontFamily: 'Fira Code'}}>
                         Sign Out
-                    </Button>
+                    </Button>}
 
                 </Toolbar>
 
