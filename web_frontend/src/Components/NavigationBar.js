@@ -8,10 +8,13 @@ import { useHistory, useParams } from 'react-router-dom';
 import axiosInstance from "../Axios";
 import splash from './splash.jpg';
 import image from './animated2.gif';
+import '../App.css';
+
+import icon from './home_icon.png';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
-        height: '55px',
+        height: '50px',
         border_bottom: `1px solid ${theme.palette.divider}`,
     },
     link: {
@@ -24,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         padding: '4px',
-        flexDirection: 'right',
     },
     paper: {
         outline: 'none',
@@ -172,23 +174,38 @@ export default function Bar() {
         
         <React.Fragment>
             <CssBaseline />
+                
                 <AppBar
-                position="static"
-                color="default"
+                position="sticky"
+                color="white"
                 elevation={0}
                 className={classes.appBar}
-                style={{color: 'black', display: 'flex'}}
+               
                 >
                 
                 <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'></link>
 
                 <Toolbar className={classes.toolbar_title}>
-                    <Typography style={{display: 'flexbox', marginBottom: '5px' , fontFamily: 'Fira Code', fontSize: '15px'}}
-                    >AE-COIN Crypto-Commerce Power Platform</Typography>
+
+                    <img src={icon} style={{marginBottom: '15px'}}/>
+
+                    <div class='gradient-logo'>
+                    <p 
+                    style={{fontFamily: 'Fira Code', marginBottom: '25px', display: 'flexbox', marginLeft: '10px', fontSize: '17px'}}
+                    >Æ COIN POWER PLATFORM</p>
+                    </div>
+
+                    <div class='container-links'>
+                        <Link id="link-1" underline="hover" style={{fontFamily: 'Fira Code'}} component={NavLink}
+                        to='/about'>ABOUT</Link>
+                        <Link id="link-2" underline="hover" style={{fontFamily: 'Fira Code'}}>FEATURES</Link>
+                        <Link id="link-3" underline="hover" style={{fontFamily: 'Fira Code'}}>CONTACT</Link>
+                    </div>
+                    
                     
                     {isLog &&
                     <Button className={classes.button} color="primary" variant="outlined" 
-                    style={{marginLeft: '1300px', marginBottom: '5px', backgroundColor: 'whitesmoke' , fontFamily: 'Fira Code'}}
+                    style={{marginLeft: '550px', marginBottom: '10px', backgroundColor: 'whitesmoke' , fontFamily: 'Fira Code'}}
                     onClick={() => setIsDrawerOpen(true)}
                    
                     >Dashboard</Button>}
@@ -295,7 +312,7 @@ export default function Bar() {
                     {isLog &&
                    <Button to="/signout" className={classes.button} 
                     href="#" color="primary" variant="outlined" component={NavLink}     
-                    style={{display:'flexbox', marginLeft: '35px', marginBottom: '5px', backgroundColor: 'whitesmoke'
+                    style={{display:'flexbox', marginLeft: '35px', marginBottom: '10px', backgroundColor: 'whitesmoke'
                     , fontFamily: 'Fira Code'}}>
                         Sign Out
                     </Button>}

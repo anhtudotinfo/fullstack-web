@@ -37,11 +37,10 @@ const useStyles = makeStyles((theme) => ({
 const theme = createTheme()
 
 export default function LandingPage() {
+
     const classes = useStyles();
     
-	
     const [data, setData] = useState({ pages: [] });
-
 
     useEffect(() => {
         axiosInstance.get().then((res) => {
@@ -52,10 +51,7 @@ export default function LandingPage() {
         });
     }, [setData]);
 
-
     return (
-
-		
 
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
@@ -79,8 +75,6 @@ export default function LandingPage() {
 						</Typography>
 					))} */}
 					
-				
-
 					{data.pages.map(a => (
 						<Typography key={a} className='neon-text' style={{fontSize: '60px', display: 'flexbox' , fontFamily: 'Source Code Pro', fontStyle: 'oblique'}}>
 							{a.title}</Typography>
@@ -88,7 +82,7 @@ export default function LandingPage() {
 					
 					{data.pages.map(b => (
 						<Typography key={b} className='neon-text2' style={{fontSize: '25px', 
-						display: 'flexbox' , marginTop: '120px',fontFamily: 'Source Code Pro'}}>
+						display: 'flexbox' , marginTop: '120px',fontFamily: 'Source Code Pro', marginRight: '20px'}}>
 							{b.body}
 						</Typography>
 					))}
@@ -114,10 +108,8 @@ export default function LandingPage() {
 						E-STORE</Button>
 					</div>
 					
-
 			</Grid>
 		</ThemeProvider>
-		
 
     )
 }

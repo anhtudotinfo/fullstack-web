@@ -56,7 +56,6 @@ const rowsPerPageOptions = [10, 20, 50];
 				backgroundRepeat: 'no-repeat'}}>
             <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'></link>
 
-            
             <Button to="/home" href="#" component={NavLink} variant="contained" color="secondary" startIcon={<ArrowBack/>} 
             style={{marginLeft: '20px', marginTop: '20px', fontFamily: 'Fira Code', backgroundColor: 'crimson'}}>Back</Button>
            

@@ -11,6 +11,7 @@ import SignOut from './Components/SignOut';
 import LandingPage from './Components/LandingPage';
 import Dashboard from './Components/Dashboard';
 import Inbox from './Components/Inbox';
+import About from './Components/About';
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -28,6 +29,7 @@ const routing = (
           <Route exact path="/home" component={LandingPage} />
           <Route exact path="/dashboard" component={Dashboard}/>
           <Route exact path="/inbox" component={Inbox}/>
+          <Route exact path="/about" component={About}/>
           
           <Route path="/signout" component={SignOut} />
           
