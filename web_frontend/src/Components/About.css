@@ -5,8 +5,45 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    
   }
   
+  #box {
+    animation: fadeIn ease 5s;
+    -webkit-animation: fadeIn ease 5s;
+    -moz-animation: fadeIn ease 5s;
+    -o-animation: fadeIn ease 5s;
+    -ms-animation: fadeIn ease 5s;
+    
+    border-radius: 10%;
+    
+  }
+
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
   h1 {
     font-size: 75px;
     letter-spacing: -1px;
@@ -17,7 +54,59 @@
     text-align: center;
     margin-left: 50px;
     margin-right: -355px;
+/* 
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s; */
 
+    background-color: #CA4246;
+	background-image: linear-gradient(
+        45deg,
+        #dac2c2 16.666%, 
+        #b19b9b 16.666%, 
+        #948178 33.333%, 
+        #806a5a 33.333%, 
+        #806351 50%, 
+        #a0b168 50%, 
+        #94b15567 66.666%, 
+        #c06825f8 66.666%, 
+        #e46c2280 83.333%, 
+        #d463129a 83.333%);
+		background-size: 100%;
+		background-repeat: repeat;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent; 
+		  animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+
+  }
+
+  h1:hover{
+    animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+  }
+  @keyframes rainbow-text-simple-animation-rev {
+      0% {
+          background-size: 650%;
+      }
+      40% {
+          background-size: 650%;
+      }
+      100% {
+          background-size: 100%;
+      }
+  }
+  
+  @keyframes rainbow-text-simple-animation {
+      0% {
+          background-size: 100%;
+      }
+      80% {
+          background-size: 650%;
+      }
+      100% {
+          background-size: 650%;
+      }
   }
   
   h1:hover {
@@ -43,13 +132,11 @@
   /* #p2 {
     color: rgb(190, 209, 199);
     letter-spacing: .5px;
-
   }
 
   #p3, #p4 { 
     color: rgb(190, 209, 199);
     letter-spacing: .5px;
-
   } */
 
 .v1 {
@@ -59,6 +146,5 @@
     margin-left: 120px;
     /* padding-top: 600px; */
     margin-bottom: 100px;
-    
     
 }

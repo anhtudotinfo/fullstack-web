@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { AppBar, Toolbar, Typography, CssBaseline, alpha, makeStyles, Button, Drawer,
+import { AppBar, Toolbar, Typography, CssBaseline, alpha, makeStyles, Button, Drawer, Popover,
 Box, Modal, TextField, Backdrop, Fade } from "@material-ui/core";
 
 import { NavLink } from "react-router-dom";
 import {Link} from "@material-ui/core";
 import { useHistory, useParams } from 'react-router-dom';
 import axiosInstance from "../Axios";
+
 import splash from './splash.jpg';
 import image from './animated2.gif';
+import image2 from './dropdown.jpg';
+import estorebg from './estore_bg.jpg';
+import chatbotbg from './chatbot_bg.jpg';
+
 import '../App.css';
+import './Navigation.css';
+
+import symbol_ae from './ae symbol.png';
+import symbol_cart from './e store symbol.jpg';
+import symbol_chatbot from './chatbot symbol.png';
 
 import icon from './home_icon.png';
 
@@ -62,6 +72,20 @@ export default function Bar() {
     const wait_time = 500;
     const [isDrawerOpen, setIsDrawerOpen] = useState(false); //Drawer component state
 
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose2 = () => {
+    setAnchorEl(null);
+  };
+
+  const open2 = Boolean(anchorEl);
+  const id = open2 ? 'simple-popover' : undefined;
+
     // const handleLogin = () => {
     //     if (localStorage.getItem('access_token') !== null){
     //         setIsLog(true);
@@ -82,7 +106,7 @@ export default function Bar() {
             } else {
                 setIsLog(false);
             }
-            console.log(isLog);
+            // console.log(isLog);
         }, wait_time)
         return () => clearInterval(id);
     }, [isLog])
@@ -180,7 +204,6 @@ export default function Bar() {
                 color="white"
                 elevation={0}
                 className={classes.appBar}
-               
                 >
                 
                 <link href='https://fonts.googleapis.com/css?family=Fira Code' rel='stylesheet'></link>
@@ -198,10 +221,74 @@ export default function Bar() {
                     <div class='container-links'>
                         <Link id="link-1" underline="hover" style={{fontFamily: 'Fira Code'}} component={NavLink}
                         to='/about'>ABOUT</Link>
-                        <Link id="link-2" underline="hover" style={{fontFamily: 'Fira Code'}}>FEATURES</Link>
+                        <Link id="link-2" underline="hover" style={{fontFamily: 'Fira Code'}}
+                        onMouseEnter={handleClick}
+                        >FEATURES</Link>
+
+                        <Popover style={{display: 'flexbox', marginLeft: '-400px'}}
+                                id={id}
+                                open={open2}
+                                anchorEl={anchorEl}
+                                anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                                }}
+                            >
+                            <Box className="body" p={0} width='950px' height= '320px' onMouseLeave={handleClose2}
+                            style={{display: 'flex', backgroundColor: 'azure'}}
+                            >
+                                    
+                        <div class="container">
+                        <div class="card" style={{backgroundSize: 'cover', backgroundImage: `url(${image2})`}}>
+                        <div class="content">
+                        <div class="img" style={{marginLeft: '20px'}}><img src={symbol_ae} /></div>
+                        <div class="cardContent">
+                        <h3>Æ Mining<br/><span></span></h3>
+                        </div>
+                        </div>
+                        <ul style={{listStyle: 'none'}} class="sci">
+                            <li style={{i:1}}>
+                            <Link style={{fontSize: '14px', color: 'whitesmoke'}}><p style={{fontFamily: 'Fira Code', marginRight: '40px'}}>Learn More</p></Link>
+                            </li>
+                        </ul>
+                        </div>
+
+                        <div class="card" style={{backgroundSize: 'cover', backgroundImage: `url(${estorebg})`}}>
+                        <div class="content">
+                        <div class="img" style={{marginLeft: '10px'}}><img src={symbol_cart}/></div>
+                        <div class="cardContent">
+                        <h3>E Store<br/><span></span></h3>
+                        </div>
+                        </div>
+                        <ul class="sci" style={{listStyle: 'none'}}>
+                        <li style={{i:1}}>
+                        <Link style={{fontSize: '14px', color: 'whitesmoke'}}><p style={{fontFamily: 'Fira Code', marginRight: '40px'}}>Learn More</p></Link>
+                        </li>
+                       
+                        </ul>
+                        </div>
+
+                        <div class="card" style={{backgroundSize: 'cover', backgroundImage: `url(${chatbotbg})`}}>
+                        <div class="content">
+                        <div class="img" style={{marginLeft: '10px'}}><img src={symbol_chatbot}/></div>
+                        <div class="cardContent">
+                        <h3>Chatbot<br/><span></span></h3>
+                        </div>
+                        </div>
+                        <ul class="sci" style={{listStyle: 'none'}}>
+                        <li style={{i:1}}>
+                        <Link style={{fontSize: '14px', color: 'whitesmoke'}}><p style={{fontFamily: 'Fira Code', marginRight: '40px'}}>Learn More</p></Link>
+                        </li>
+                        
+                        </ul>
+                        </div>
+
+                        </div>
+                            </Box>
+                            </Popover>
+
                         <Link id="link-3" underline="hover" style={{fontFamily: 'Fira Code'}}>CONTACT</Link>
                     </div>
-                    
                     
                     {isLog &&
                     <Button className={classes.button} color="primary" variant="outlined" 
@@ -324,3 +411,4 @@ export default function Bar() {
         </React.Fragment>
     )
 }
+

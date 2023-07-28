@@ -12,6 +12,7 @@ import LandingPage from './Components/LandingPage';
 import Dashboard from './Components/Dashboard';
 import Inbox from './Components/Inbox';
 import About from './Components/About';
+import Footer from './Components/Footer';
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -32,8 +33,9 @@ const routing = (
           <Route exact path="/about" component={About}/>
           
           <Route path="/signout" component={SignOut} />
-          
+        
         </ Switch>
+        <Footer/>
       </React.StrictMode>
     </Router>
 );
