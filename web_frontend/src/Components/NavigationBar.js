@@ -4,7 +4,7 @@ Box, Modal, TextField, Backdrop, Fade } from "@material-ui/core";
 
 import { NavLink } from "react-router-dom";
 import {Link} from "@material-ui/core";
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axiosInstance from "../Axios";
 
 import splash from './splash.jpg';
@@ -72,6 +72,7 @@ export default function Bar() {
     const wait_time = 500;
     const [isDrawerOpen, setIsDrawerOpen] = useState(false); //Drawer component state
 
+    const history = useHistory();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -187,9 +188,15 @@ export default function Bar() {
         alert("Operation Complete!");
         window.location.reload();
         })
-        // axiosInstance.put(`bank-accounts/edit/93/` , {
-        //     bank_account_balance: a.amount,
-        // });
+    }
+
+    const redirect = () => {
+        const is_token = localStorage.getItem('access_token');
+        if (is_token) {
+            history.push("/home");
+        } else {
+            history.push("");
+        }
     }
 
     const classes = useStyles();
@@ -213,9 +220,10 @@ export default function Bar() {
                     <img src={icon} style={{marginBottom: '15px'}}/>
 
                     <div class='gradient-logo'>
+                    <Link onClick={redirect} underline="hover" href="">
                     <p 
                     style={{fontFamily: 'Fira Code', marginBottom: '25px', display: 'flexbox', marginLeft: '10px', fontSize: '17px'}}
-                    >Æ COIN POWER PLATFORM</p>
+                    >Æ COIN POWER PLATFORM</p></Link>
                     </div>
 
                     <div class='container-links'>
@@ -239,6 +247,7 @@ export default function Bar() {
                             >
                                     
                         <div class="container">
+                            
                         <div class="card" style={{backgroundSize: 'cover', backgroundImage: `url(${image2})`}}>
                         <div class="content">
                         <div class="img" style={{marginLeft: '20px'}}><img src={symbol_ae} /></div>
@@ -248,7 +257,8 @@ export default function Bar() {
                         </div>
                         <ul style={{listStyle: 'none'}} class="sci">
                             <li style={{i:1}}>
-                            <Link style={{fontSize: '14px', color: 'whitesmoke'}}><p style={{fontFamily: 'Fira Code', marginRight: '40px'}}>Learn More</p></Link>
+                            <Link component={NavLink} to="/learnmore" style={{fontSize: '14px', color: 'whitesmoke'}}>
+                                <p style={{fontFamily: 'Fira Code', marginRight: '40px'}}>Learn More</p></Link>
                             </li>
                         </ul>
                         </div>
@@ -257,12 +267,13 @@ export default function Bar() {
                         <div class="content">
                         <div class="img" style={{marginLeft: '10px'}}><img src={symbol_cart}/></div>
                         <div class="cardContent">
-                        <h3>E Store<br/><span></span></h3>
+                        <h3>E-Store<br/><span></span></h3>
                         </div>
                         </div>
                         <ul class="sci" style={{listStyle: 'none'}}>
                         <li style={{i:1}}>
-                        <Link style={{fontSize: '14px', color: 'whitesmoke'}}><p style={{fontFamily: 'Fira Code', marginRight: '40px'}}>Learn More</p></Link>
+                        <Link component={NavLink} to="/learnmore" style={{fontSize: '14px', color: 'whitesmoke'}}>
+                            <p style={{fontFamily: 'Fira Code', marginRight: '40px'}}>Learn More</p></Link>
                         </li>
                        
                         </ul>
@@ -270,14 +281,15 @@ export default function Bar() {
 
                         <div class="card" style={{backgroundSize: 'cover', backgroundImage: `url(${chatbotbg})`}}>
                         <div class="content">
-                        <div class="img" style={{marginLeft: '10px'}}><img src={symbol_chatbot}/></div>
+                        <div class="img" style={{marginLeft: '15px'}}><img src={symbol_chatbot}/></div>
                         <div class="cardContent">
                         <h3>Chatbot<br/><span></span></h3>
                         </div>
                         </div>
                         <ul class="sci" style={{listStyle: 'none'}}>
                         <li style={{i:1}}>
-                        <Link style={{fontSize: '14px', color: 'whitesmoke'}}><p style={{fontFamily: 'Fira Code', marginRight: '40px'}}>Learn More</p></Link>
+                        <Link component={NavLink} to="/learnmore" style={{fontSize: '14px', color: 'whitesmoke'}}>
+                            <p style={{fontFamily: 'Fira Code', marginRight: '40px'}}>Learn More</p></Link>
                         </li>
                         
                         </ul>
@@ -287,7 +299,7 @@ export default function Bar() {
                             </Box>
                             </Popover>
 
-                        <Link id="link-3" underline="hover" style={{fontFamily: 'Fira Code'}}>CONTACT</Link>
+                        <Link component={NavLink} to="contact-us" id="link-3" underline="hover" style={{fontFamily: 'Fira Code'}}>CONTACT</Link>
                     </div>
                     
                     {isLog &&

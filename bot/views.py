@@ -56,7 +56,7 @@ def chatbot(request):
     elif '1' in words:
         response = """Crypto-mining: This is a process of validating and recording transactions on the AE-Coin network.
         The main purpose is to validate transactions to prevent fraud and adding new blocks to the blockchain. This platform    
-        offers the user three plans for mining AE-Coin."""
+        offers the user three plans for mining AE-Coin. Once you activate a plan - you are bound to that plan."""
 
     elif '2' in words:
         response = """The Stock Market Exchange is simple - It changes continously according to the dollar-rate

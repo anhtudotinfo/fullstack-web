@@ -86,7 +86,7 @@
     height: 300px;
     margin: 0.5em;
     background: rgba(124, 136, 138, 0.795);
-    border-radius: 15px;
+    border-radius: 5%;
     display: flex;
     justify-content: center;
     align-items: center;

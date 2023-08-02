@@ -27,12 +27,16 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   footerLink: {
+    fontFamily: 'Fira Code',
     marginLeft: theme.spacing(3),
     marginRight: theme.spacing(3),
     [theme.breakpoints.down('md')]: {
       marginBottom: theme.spacing(2),
     }
   },
+  text :{
+    fontFamily: 'Fira Code',
+  }
 }));
 
 export default function Footer(props) {
@@ -41,10 +45,10 @@ export default function Footer(props) {
   const content = {
     'brand': { image: '', width: 110 },
     'copy': '© 2023 Æ POWER PLATFORM All rights reserved.',
-    'link1': 'First Link',
-    'link2': 'Second Link',
-    'link3': 'Third Link',
-    'link4': 'Fourth Link',
+    'link1': 'Our Team',
+    'link2': 'Socials',
+    'link3': 'Blog',
+    'link4': 'Ads',
     ...props.content
   };
 
@@ -69,7 +73,7 @@ export default function Footer(props) {
             <Link href="#" variant="body1" color="textPrimary" className={classes.footerLink}>{content['link3']}</Link>
             <Link href="#" variant="body1" color="textPrimary" className={classes.footerLink}>{content['link4']}</Link>
           </Box>
-          <Typography color="textSecondary" component="p" variant="caption" gutterBottom={false}>{content['copy']}</Typography>
+          <Typography className={classes.text} color="textSecondary" component="p" variant="caption" gutterBottom={false}>{content['copy']}</Typography>
         </Box>
       </Container>
     </footer>

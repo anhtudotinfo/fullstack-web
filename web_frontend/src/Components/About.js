@@ -13,7 +13,7 @@ import splash_image from "./login.gif";
 import './About.css'
 
 const useStyles = makeStyles((theme)=> {
-
+// not used
 });
 
 const theme = createTheme();

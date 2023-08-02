@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from '../src/Components/homepage_temp.gif';
 import './App.css';
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
@@ -105,64 +105,67 @@ export default function App() {
 <ThemeProvider theme={theme}>
   <CssBaseline/>
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet"></link>
-    <Grid item style={{backgroundImage: `url(${animated1})`, backgroundSize: 'cover', 
-				backgroundRepeat: 'no-repeat', 
-				height: '100vh'}}> 
-      
-      {/* <div class="wrapper two">
-          <div class="neon" style={{display: 'flexbox', marginTop: '0%', textAlign: 'center'}}>
-              <h3 style={{fontFamily: 'Courier', fontSize: '40px', fontStyle: 'oblique' }}>WELCOME TO THE AE-COIN CRYPTO PLATFORM AND E-STORE</h3>
-              <h4 style={{fontFamily: 'Candara', fontSize: '25px', marginTop: '0%'}}>PLEASE LOGIN OR REGISTER</h4>
-          </div>
-        </div> */}
-      
-      <div class="entry-page">
-        <div class="neons" style={{display: 'flexbox', textAlign:'center', padding: '1px'}}>
-          <h3 style={{fontSize: '40px', color:'white', fontFamily: 'Source Code Pro'}}>Welcome to the AE-COIN Mining Platform and E-Store!</h3>
-		  {/* <h4 style={{color: 'white'}}>Please log in or register to get started!</h4> */}
-          <p class="line-1 anim-typewriter">Get Started!</p>
 
+  <Grid container component="main" sx={{ height: '100vh' }} style={{backgroundColor: '#e6eaee'}}> 
 
-		  <div class="login-wrap">
+        <Grid item xs={12} sm={8} md={5} elevation={0}>
+          <Box
+            sx={{
+              display: 'flex',
+            }}
+          >
+<div class="maincontainer" style={{marginLeft: '-500px'}}>
+
+<div class="thecard">
+
+  <div class="thefront" style={{backgroundColor: '#e6eaee'}}>
+
+	<p>FRONT</p>
+
+	</div>
+
+  <div class="theback" style={{backgroundColor: '#e6eaee'}}>
+	
+  <div class="login-wrap" style={{backgroundColor: '#e7eaee', marginTop: '15px'}}>
 	<div class="login-html">
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked/>
-		<label for="tab-1" class="tab" style={{fontFamily:'Courier New', color: 'white'}}>Sign In</label>
+		<label for="tab-1" class="tab" style={{fontFamily:'Fira Code', color: 'black'}}>Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up"/>
-		<label for="tab-2" class="tab" style={{fontFamily:'Courier New', color: 'white'}}>Register</label>
+		<label for="tab-2" class="tab" style={{fontFamily:'Fira Code', color: 'black'}}>Register</label>
 		<div class="login-form">
 			<div class="sign-in-htm">
 				<div class="group">
-					<label for="user" class="label" style={{fontFamily:'Courier New' ,fontSize: '16px'}}>Email Address</label>
-					<input id="email" type="text" name='email' class="input" onChange={handleChange}/>
+					<label for="user" class="label" style={{fontFamily:'Fira Code' ,fontSize: '16px'}}>Email Address</label>
+					<input id="email" type="text" name='email' class="input" onChange={handleChange} />
 				</div>
 				<div class="group">
-					<label for="pass" class="label" style={{fontFamily:'Courier New' ,fontSize: '16px'}}>Password</label>
+					<label for="pass" class="label" style={{fontFamily:'Fira Code' ,fontSize: '16px'}}>Password</label>
 					<input id="password" type="password" class="input" data-type="password" name='password' onChange={handleChange}/>
 
 				</div>
 
 				<div class='frame'>
 					<button class='custom-btn btn-14' type='submit' onClick={handleSubmit}
-					style={{fontFamily: 'Courier New', fontSize: '20px', width: '300px', color: 'white'}}>LOGIN</button>
+					style={{fontFamily: 'Fira Code', fontSize: '20px', width: '300px', color: 'black', paddingBottom: '40px'}}>LOGIN</button>
 				</div>
 
 				<div class="hr"></div>
 
 			</div>
 			<div class="sign-up-htm">
-				<h2 style={{fontFamily:'Courier New' ,fontSize: '16px'}}>DON'T HAVE AN ACCOUNT?</h2>
+				<h2 style={{fontFamily:'Fira Code' ,fontSize: '16px'}}>DON'T HAVE AN ACCOUNT?</h2>
 				{/* <div class="group">
-					<label class="label" style={{fontFamily:'Courier New' ,fontSize: '16px'}}>Email Address</label>
+					<label class="label" style={{fontFamily:'Fira Code' ,fontSize: '16px'}}>Email Address</label>
 					<input id="email_new" name='email_new' type="text" class="input" onChange={handlenewChange}/>
 				</div>
 				<div class="group">
-					<label class="label" style={{fontFamily:'Courier New' ,fontSize: '16px'}}>Password</label>
+					<label class="label" style={{fontFamily:'Fira Code' ,fontSize: '16px'}}>Password</label>
 					<input id="password_new" name='password_new' type="password" class="input" data-type="password" onChange={handlenewChange}/>
 				</div> */}
 
 			<div class='frame'>
 					<button class='custom-btn btn-14' type='submit' 
-					style={{fontFamily: 'Courier New', fontSize: '20px', width: '300px', color: 'white'}}>REGISTER</button>
+					style={{fontFamily: 'Fira Code', fontSize: '20px', width: '300px', color: 'black', paddingBottom: '40px'}}>REGISTER</button>
 			</div>
 				<div class="hr"></div>
 
@@ -170,11 +173,30 @@ export default function App() {
 		</div>
 	</div>
 </div>
+  </div>
 
-    </div>
-      </div>
+</div>
+</div>
 
-    </Grid>
+          </Box>
+		  
+        </Grid>
+
+		<Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+			backgroundColor: '#e6eaee',
+			backgroundImage: `url(${logo})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '800px 900px',
+            backgroundPosition: 'center',
+			marginTop: '-60px'
+          }}
+        />
+      </Grid>
     </ThemeProvider>
 
 
