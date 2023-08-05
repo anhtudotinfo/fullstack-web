@@ -1,9 +1,8 @@
 import logo from '../src/Components/homepage_temp.gif';
 import './App.css';
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import axiosInstance from './Axios';
-
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -16,9 +15,9 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import animated1 from './Components/aa.gif';
+import bg_image_login from './Components/login-background-image.jpg';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Height } from '@mui/icons-material';
+import { ArrowForward, Height } from '@mui/icons-material';
 
 
 const theme = createTheme()
@@ -63,48 +62,10 @@ export default function App() {
       console.log(formData.email, formData.password);
 	};	
 
-	// const initialNewData = Object.freeze({
-	// 	email_new: '',
-	// 	password_new: '',
-
-	// });
-
-	// const [newData, updateNewData] = useState(initialNewData);
-
-	// const handlenewChange = (e) => {
-	// 	updateNewData ({
-	// 		...newData,
-
-	// 		[e.target.name]: e.target.value.trim(),
-	// 	});
-	// };
-
-	// const [error, setError] = useState();
-
-	// const handleNewSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	console.log(newData);
-
-	// 	axiosInstance.post(`user/create/`, {
-	// 		email: newData.email_new,
-	// 		password: newData.password_new,
-	// 	})
-	// 	.then((res) => {
-	// 		history.push("/home");
-	// 		console.log(res.data);
-
-	// 	}, reason => {
-	// 		console.log(reason);
-	// 		setError();
-	// 		alert("Failed due to either one of the following:" + "\nUser already exists!\nPlease fill required fields!\nEnter a strong password!");
-	// 	});
-	// };
-
-
   return (
 <ThemeProvider theme={theme}>
   <CssBaseline/>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet"></link>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=League+Spartan&family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet"/>
 
   <Grid container component="main" sx={{ height: '100vh' }} style={{backgroundColor: '#e6eaee'}}> 
 
@@ -119,15 +80,30 @@ export default function App() {
 <div class="thecard">
 
   <div class="thefront" style={{backgroundColor: '#e6eaee'}}>
+	<div class='body1'>
+		<div class="heading">
+		<div>
+			<p class="slide-up"><span class="green" style={{fontSize: '48px', fontFamily: 'League Spartan'}}>Æ Power Platform</span></p>
+		</div>
+		<div>
+			<p class="slide-up" style={{fontSize: '24px', fontFamily: 'Fira Code'}}>Crypto-Mining. E-Commerce.</p>
+			<p class="slide-up" style={{fontSize: '24px', fontFamily: 'Fira Code'}}>Event-driven technology.</p>
+		</div>
+		<div >
+			<Typography class="slide-up" style={{fontSize: '20px', fontFamily: 'Fira Code', display: 'flex',
+    flexWrap: 'wrap'}}>Get Started Here <ArrowForward style={{marginLeft: '5px', marginTop: '-2px'}}/></Typography>
+	<hr class="slide-up"></hr>
+		</div>
 
-	<p>FRONT</p>
+		</div>
+	</div>
 
 	</div>
 
   <div class="theback" style={{backgroundColor: '#e6eaee'}}>
 	
-  <div class="login-wrap" style={{backgroundColor: '#e7eaee', marginTop: '15px'}}>
-	<div class="login-html">
+  <div class="login-wrap" style={{backgroundColor: 'ghostwhite', marginTop: '15px'}}>
+	<div class="login-html" style={{backgroundImage: `url(${bg_image_login})`, backgroundRepeat: 'no-repeat'}}>
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked/>
 		<label for="tab-1" class="tab" style={{fontFamily:'Fira Code', color: 'black'}}>Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up"/>
@@ -164,17 +140,17 @@ export default function App() {
 				</div> */}
 
 			<div class='frame'>
-					<button class='custom-btn btn-14' type='submit' 
-					style={{fontFamily: 'Fira Code', fontSize: '20px', width: '300px', color: 'black', paddingBottom: '40px'}}>REGISTER</button>
+					<Link to="/register" href="#" component={NavLink}><button class='custom-btn btn-14' 
+					style={{fontFamily: 'Fira Code', fontSize: '20px', width: '300px', color: 'black', paddingBottom: '40px'}}>REGISTER</button></Link>
 			</div>
 				<div class="hr"></div>
 
 			</div>
 		</div>
 	</div>
+	
 </div>
   </div>
-
 </div>
 </div>
 
@@ -198,7 +174,6 @@ export default function App() {
         />
       </Grid>
     </ThemeProvider>
-
 
   );
 

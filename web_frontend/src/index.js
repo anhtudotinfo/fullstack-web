@@ -9,6 +9,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Bar from './Components/NavigationBar';
 import SignOut from './Components/SignOut';
 import LandingPage from './Components/LandingPage';
+import Register from './Components/Register';
 import Dashboard from './Components/Dashboard'; // not used
 import Inbox from './Components/Inbox';
 import About from './Components/About';
@@ -30,6 +31,7 @@ const routing = (
         <Switch>
           <Route exact path="/" component={App} />
           <Route exact path="/home" component={LandingPage} />
+          <Route exact path="/register" component={Register} />
           {/* <Route exact path="/dashboard" component={Dashboard}/> not used */}
           <Route exact path="/inbox" component={Inbox}/>
           <Route exact path="/about" component={About}/>

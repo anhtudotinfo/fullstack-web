@@ -76,6 +76,101 @@
 
 } */
 
+/* body, html {
+	height: 100vh;
+	width: 100vw;
+  }
+   */
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+  .body1 {
+	height: 100vh;
+	width: 100vw;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	font-family: "Spartan", sans-serif;
+	color: #2d2d2d;
+  }
+  
+  ::-moz-selection {
+	background: rgba(170, 170, 170, 0.3);
+  }
+  
+  ::selection {
+	background: rgba(170, 170, 170, 0.3);
+  }
+
+
+
+  .heading {
+	margin: 80px 0 0 80px;
+	font-size: 64px;
+	width: -webkit-max-content;
+	width: -moz-max-content;
+	width: max-content;
+	display: flex;
+	flex-direction: column;
+  }
+  .heading > div {
+	overflow: hidden;
+  }
+  .heading > div > p {
+	width: -webkit-max-content;
+	width: -moz-max-content;
+	width: max-content;
+	white-space: nowrap;
+	margin: 0;
+	line-height: 117%;
+  }
+  
+  .green {
+	/* background: rgb(244,216,91); */
+	background: linear-gradient(195deg, rgb(37, 165, 159) 0%, rgb(197, 109, 109) 82%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+  }
+  
+  div.heading > div {
+	-webkit-animation-delay: 0;
+			animation-delay: 0;
+  }
+  div.heading > div:nth-child(2) > p {
+	-webkit-animation-delay: 0.05s;
+			animation-delay: 0.05s;
+  }
+  
+  div.heading > div {
+	-webkit-animation-delay: 0;
+			animation-delay: 0;
+  }
+  div.heading > div:nth-child(3) > p {
+	-webkit-animation-delay: 0.075s;
+			animation-delay: 0.075s;
+  }
+  
+  .slide-up {
+	-webkit-animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+			animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+  }
+  
+  @-webkit-keyframes slide-up {
+	0% {
+	  transform: translateY(100px);
+	}
+	100% {
+	  transform: translateY(0);
+	}
+  }
+  
+  @keyframes slide-up {
+	0% {
+	  transform: translateY(100px);
+	}
+	100% {
+	  transform: translateY(0);
+	}
+  }
 
 .maincontainer{
 	position: absolute;
@@ -189,20 +284,6 @@ h3 {
 	color: rgba(255, 255, 255, 0.877);
 }
 
-/* Animation */
-.anim-typewriter{
-  animation: typewriter 1s steps(44) 1s 1 normal both,
-             blinkTextCursor 500ms steps(44) infinite normal;
-}
-@keyframes typewriter{
-  from{width: 0;}
-  to{width: 7em;}
-}
-@keyframes blinkTextCursor{
-  from{border-right-color: rgba(255,255,255,.75);}
-  to{border-right-color: transparent;}
-}
-
 
 *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:table}
@@ -224,8 +305,7 @@ a{color:inherit;text-decoration:none}
 	padding:90px 70px 50px 70px;
 	background:rgba(148, 153, 165, 0);
 	box-shadow: 0 0 5px #000;
-	/* opacity: 85%; */
-	
+	opacity: 85%;
 }
 
 .login-html:before {
@@ -242,7 +322,7 @@ a{color:inherit;text-decoration:none}
 	/* filter: blur(1px); */
 }
 h2 {
-	color:#aaa;
+	color:#000000;
 }
 
 .login-html .sign-in-htm,
@@ -307,7 +387,7 @@ h2 {
 	-webkit-text-security:circle;
 }
 .login-form .group .label{
-	color:#aaa;
+	color:#000000;
 	font-size:12px;
 }
 .login-form .group .button{
