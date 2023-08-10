@@ -1,3 +1,91 @@
+.landing-body{
+  box-sizing:border-box;
+}
+
+.landing-body {
+  margin: 0;
+  font-family: tahoma;
+}
+
+.content-container {
+  padding: 75px;
+}
+
+.col-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column-one {
+  float: left;
+  width: 66.66666%;
+  padding: 25px;
+}
+
+.column-two {
+  float: left;
+  width: 33.33333%;
+  padding: 25px;
+}
+
+.l-font {
+  font-size: 45px;
+  color: #03071e;
+}
+
+.xl-font {
+  font-size: 65px;
+  color: #03071e;
+}
+
+.button {
+  border: 5px solid #03071e;
+  background-color: transparent;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #03071e;
+  font-weight: bold;
+  transition: .2s;
+}
+
+.button:hover {
+  background-color: #03071e;
+  color: white;
+}
+
+#img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .column-one,
+  .column-two {
+    width: 100%;
+    text-align: center;
+  }
+  img {
+    margin: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .neon-text {
     color: #fff;
@@ -44,7 +132,7 @@
         
 } 
 
-#neon-btn {
+.neon-btn {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -54,8 +142,6 @@
 .btn {
   border: 1px solid;
   background-color: transparent;
-  text-transform: uppercase;
-  font-size: 14px;
   padding: 10px 20px;
   font-weight: 300;
 }
@@ -90,7 +176,6 @@
 
 .neon-text2 {
   position: relative;
-  font-family: tahoma;
   font-size: 25px;
   opacity:0;
   top:40px;

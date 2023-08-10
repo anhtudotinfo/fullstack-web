@@ -1,8 +1,9 @@
-import logo from '../src/Components/homepage_temp.gif';
+import logo from '../src/Components/homepage_new.gif';
 import './App.css';
 import React, {useState} from 'react';
 import { useHistory, NavLink } from 'react-router-dom';
 import axiosInstance from './Axios';
+import FAQ from './Components/FAQpage';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -16,6 +17,10 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import bg_image_login from './Components/login-background-image.jpg';
+import c1 from './Components/card-1.jpg';
+import c2 from './Components/card-2.jpg';
+import c3 from './Components/card-3.jpg';
+import other_image from './Components/DigitalLandscape.jpg';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ArrowForward, Height } from '@mui/icons-material';
 
@@ -173,6 +178,54 @@ export default function App() {
           }}
         />
       </Grid>
+
+	  <Grid item height='100vh' class="body-cards" style={{backgroundImage: `url(${other_image})`, backgroundRepeat: 'no-repeat'}}>
+
+	  <div class="container-one">
+  <div class="card">
+        <div class="face face1" style={{backgroundImage: `url(${c1})`, backgroundRepeat: 'no-repeat'}}>
+          <div class="content">
+        <h3 style={{fontFamily: 'Fira Code'}}> Create an account </h3>
+        </div>
+        </div>
+        <div class="face face2">
+          <div class="content">
+            <p style={{fontFamily: 'Fira Code'}}> Create a free account and get started with your own crypto-mining journey. </p>
+            </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="face face1" style={{backgroundImage: `url(${c2})`, backgroundRepeat: 'no-repeat'}}>
+          <div class="content">
+            <h3 style={{fontFamily: 'Fira Code'}}> Mine crypto </h3>
+          </div>
+        </div>
+        <div class="face face2">
+          <div class="content">
+            <p style={{fontFamily: 'Fira Code'}}>Choose a plan and let us mine crypto for you. </p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="face face1" style={{backgroundImage: `url(${c3})`, backgroundRepeat: 'no-repeat'}}>
+          <div class="content">
+            <h3 style={{fontFamily: 'Fira Code'}}>Connect & Trade</h3>
+          </div>
+        </div>
+        <div class="face face2">
+          <div class="content">
+            <p style={{fontFamily: 'Fira Code'}}>Exchange your crypto for microtransactions or convert it directly to U$D currency.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+	  </Grid>
+
+	  <Grid item>
+		  <FAQ />
+	  </Grid>
+
+	  
     </ThemeProvider>
 
   );

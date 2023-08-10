@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 import axiosInstance from "../Axios";
 
 import splash from './splash.jpg';
-import image from './animated2.gif';
+import image from './side-splash.jpg';
 import image2 from './dropdown.jpg';
 import estorebg from './estore_bg.jpg';
 import chatbotbg from './chatbot_bg.jpg';
@@ -303,15 +303,16 @@ export default function Bar() {
                     </div>
                     
                     {isLog &&
-                    <Button className={classes.button} color="primary" variant="outlined" 
-                    style={{marginLeft: '550px', marginBottom: '10px', backgroundColor: 'whitesmoke' , fontFamily: 'Fira Code'}}
-                    onClick={() => setIsDrawerOpen(true)}
+                    <Button className={classes.button} color="primary" variant="outlined"
+                    style={{marginLeft: '550px', marginBottom: '10px', backgroundColor: 'whitesmoke' , fontFamily: 'Fira Code',
+                    fontWeight: 'normal', display: 'flexbox'}}
+                    onClick={(e) => { 
+                        e.preventDefault();
+                        setIsDrawerOpen(true)}}
                    
                     >Dashboard</Button>}
 
-                    <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}
-                    
-                    >
+                    <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
                         <Box p={2} width='400px' textAlign='center' role="presentation" 
                         style={{backgroundImage: `url(${image})`, height: '950px', color: "white", backgroundSize: 'cover', 
                         backgroundRepeat: 'no-repeat'}}>
@@ -338,7 +339,7 @@ export default function Bar() {
 
                     {data2.value2.map(d => (
                         <Typography key={d} style={{padding: '5px' , fontFamily: 'Fira Code'}}>Crypto Wallet Balance{' : '}
-                            {d.crypto_balance}</Typography>
+                           {d.crypto_balance} Æ</Typography>
                     ))}
                     
                     {data2.value2.map(e => (
@@ -411,8 +412,8 @@ export default function Bar() {
                     {isLog &&
                    <Button to="/signout" className={classes.button} 
                     href="#" color="primary" variant="outlined" component={NavLink}     
-                    style={{display:'flexbox', marginLeft: '35px', marginBottom: '10px', backgroundColor: 'whitesmoke'
-                    , fontFamily: 'Fira Code'}}>
+                    style={{display:'flexbox', marginLeft: '35px', marginBottom: '10px', backgroundColor: 'whitesmoke', fontWeight: 'normal',
+                    fontFamily: 'Fira Code'}}>
                         Sign Out
                     </Button>}
 

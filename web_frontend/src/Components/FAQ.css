@@ -1,0 +1,76 @@
+.main, .main::after, .main::before {
+    box-sizing: border-box;
+    
+    margin: 0;
+    padding: 0;
+  }
+  
+  #faq-p {
+    line-height: 1.8;
+  }
+  
+  .main {
+    min-width: 375px;
+  
+    font-family: "Poppins", sans-serif;
+  
+    background-color: #f1f1f1;
+    color: #1a1a1a;
+  }
+  
+  .main {
+    min-height: 80vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding : 10rem;
+  }
+  
+#faq-h1 {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 800;
+
+    background: -webkit-linear-gradient(rgb(59, 71, 228) 0%, rgb(10, 12, 12));
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+    margin-top: 1em;
+    margin-bottom: 1.8em;
+  }
+  
+  section.faq {
+    
+    width: 100%;
+    max-width: 540px;
+    border-radius: 12px;
+    padding: 2em;
+    
+    background-color: white;
+    box-shadow: 2px 2px 15px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .faq-container {
+    display: grid;
+    gap: 1em;
+  }
+  
+  .faq-header {
+    padding: 1.2em 1em;
+    
+    font-weight: 600;
+    
+    background-color: whitesmoke;
+    
+    user-select: none;
+    cursor: pointer;
+  }
+  
+  .faq-content {
+    padding: 1em;
+  }
+  
+
+  

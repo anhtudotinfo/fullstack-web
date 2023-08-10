@@ -9,7 +9,7 @@ export default function ContactUs () {
   <div class="form-container">
     <div class="left-container" style={{backgroundSize: 'cover', backgroundImage: `url(${contact_us})`}}>
       <div class="left-inner-container">
-      <h2 id='h2'>Let's Chat</h2>
+      <h2 id='h2' style={{color: 'whitesmoke'}}>Let's Chat</h2>
       <p id='p-text'>Whether you have a question, want to start a project or simply want to connect.</p>
         <br/>
         <p id='p-text'>Feel free to send me a message in the contact form</p>
