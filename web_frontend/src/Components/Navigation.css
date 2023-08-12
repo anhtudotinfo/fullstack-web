@@ -27,7 +27,6 @@
     background: linear-gradient(90deg, rgba(52,22,39,1) 5%, rgba(218,217,218,1) 82%); */
         /*scrollbar-width: none;
     overflow: hidden;
-  
     &::-webkit-scrollbar {
       width: 0;
     }*/
@@ -162,3 +161,28 @@
     transform: translateY(0px);
     opacity: 1;
   }
+
+  #link-1, #link-2, #link-3 {
+    transition: all 0.3s ease-in-out;
+    color: #000000;
+  }
+
+  #link-1:hover, #link-2:hover, #link-3:hover {
+    background-color: #602388;
+    color: #fff;
+    border-radius: 4px;
+    padding: 1%;
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+#app-bar {
+  background: rgba(189, 190, 196, 0.3);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}

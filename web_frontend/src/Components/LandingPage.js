@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from '../Axios';
 import './LandingPage.css'
+import Stats from "./Stats";
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,7 +11,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Grid, Button } from "@material-ui/core";
 import { height, keyframes } from "@mui/system";
 import { Box } from "@mui/material";
-import image from './image2.jpg'
 import crypto_splash from './crypto-mining-landing.gif';
 import e_store_splash from './E-commerce-landing.gif';
 
@@ -55,65 +55,55 @@ export default function LandingPage() {
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet"></link>
-			<Grid item style={{ height: '100vh', backgroundImage: `url(${image})`, backgroundRepeat: 'no-repeat'}}>
-					
-					{data.pages.length > 0 &&
-						<Typography className='neon-text' style={{fontSize: '60px', display: 'flexbox' , fontFamily: 'Source Code Pro', fontStyle: 'oblique'}}>
+
+<Grid item>
+	<div class="html" style={{backgroundColor: '#2445bf'}}>
+    <section class="hero">
+        <div class="div" style={{marginRight: '200px'}}>
+
+		{data.pages.length > 0 &&
+						<Typography className='neon-text' style={{fontSize: '60px', display: 'flexbox' , fontFamily: 'Source Code Pro', fontWeight: 'bold'}}>
 							{data.pages[0].title}</Typography>}
 
-					{data.pages.length > 0 &&
-						<Typography className='neon-text2' style={{fontSize: '25px', 
-						display: 'flexbox' , marginTop: '120px',fontFamily: 'Fira Code', marginRight: '20px'}}>
-							{data.pages[0].body}
-						</Typography>}
+		{data.pages.length > 0 &&
+					<p id="p" style={{fontFamily: 'Source Code Pro', display: 'grid', fontStyle: 'oblique'}}>
+						{data.pages[0].body}</p>}
 
-						{data.pages.length > 0 &&
-						<Typography className='neon-text' style={{fontSize: '60px', display: 'flexbox' , fontFamily: 'Source Code Pro', fontStyle: 'oblique'}}>
-							{data.pages[1].title}</Typography>}
-														
-						{data.pages.length > 0 &&
-						<Typography className='neon-text2' style={{fontSize: '25px', 
-						display: 'flexbox' , marginTop: '120px',fontFamily: 'Fira Code', marginRight: '20px'}}>
-							{data.pages[1].body}
-						</Typography>}
-					
-					<div class="neon-btn">
-					<button class="btn one" style={{fontSize: '20px', fontFamily: 'Fira Code'}}>AE-COIN PLATFORM</button>
-					<button  class="btn two" 
-					style={{fontSize: '20px', fontFamily: 'Fira Code'}}>
-						E-STORE</button>
-					</div>
-{/* <div class="landing-body">
-<div class="content-container" style={{backgroundColor: 'white'}}>
-  <div class="col-container">
-    <div class="column-one">
-      <h2 class="xl-font"><b>HTML</b></h2>
-      <h2 class="l-font"><b>Gives content structure.</b></h2>
-      <button class="button">Learn HTML</button>
-    </div>
-    <div class="column-two">
-        <img id="img" src={crypto_splash} style={{backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}/>
-    </div>
-  </div>
+            <button class="btn one" style={{fontSize: '20px', fontFamily: 'Fira Code',borderRadius: '15px'}}>Start Mining</button>
+        </div>
+        <img id="image-one" src={crypto_splash} alt="" style={{borderRadius: '20px'}}/>
+    </section>
 </div>
 
-<div class="content-container" style={{backgroundColor: 'red'}}>
-  <div class="col-container">
-    <div class="column-two">
-      <img src={e_store_splash} alt="CSS" style={{backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}/>
-    </div>
-    <div class="column-one">
-      <h2 class="xl-font"><b>CSS</b></h2>
-      <h2 class="l-font"><b>Describes how HTML elements are displayed on the website.</b></h2>
-      <button class="button">Learn CSS</button>
-    </div>
-  </div>
+<div class="html-two" style={{backgroundColor: '#050a19'}}>
+    <section class="hero">
+	<img id="image-two" src={e_store_splash} alt="" style={{display: 'flex', marginLeft: '-300px', borderRadius: '20px'}}/>
+        <div class="div" style={{paddingLeft: '200px'}}>
+
+		{data.pages.length > 0 &&
+		<Typography className='neon-text' style={{marginLeft: '-100px', marginTop:'60px', fontSize: '60px', display: 'flexbox' ,fontWeight: 'bold',
+		fontFamily: 'Source Code Pro'}}>
+			{data.pages[1].title}</Typography>}
+
+			{data.pages.length > 0 &&
+			<p id="p" style={{
+			display: 'flexbox' ,fontFamily: 'Source Code Pro', display: 'grid', fontStyle: 'oblique'}}>
+				{data.pages[1].body}
+			</p>}
+
+            <button class="btn two" 
+					style={{fontSize: '20px', fontFamily: 'Fira Code',borderRadius: '15px'}}>
+						Buy Microtransactions</button>
+        </div>
+    </section>
 </div>
+</Grid>
 
-</div> */}
+<Grid item id="stat-banner" style={{height: '300px'}}>
+	<Stats />
+</Grid>
 
-					
-			</Grid>
+			{/* </Grid> */}
 		</ThemeProvider>
 
     )

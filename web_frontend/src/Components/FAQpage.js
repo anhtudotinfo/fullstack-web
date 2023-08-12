@@ -5,7 +5,7 @@ import faq_bg from './abstract-geometric-background.jpg';
 export default function FAQ() {
     
     return (
-<main class="main" style={{backgroundImage: `url(${faq_bg})`, backgroundRepeat: 'no-repeat'}}>
+<main class="main" style={{backgroundImage: `url(${faq_bg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
 
   <section class="faq">
     <h2 id="faq-h1" style={{fontFamily: "Fira Code"}}>Frequently Asked Questions</h2>

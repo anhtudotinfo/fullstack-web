@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Toolbar, Typography, CssBaseline, alpha, makeStyles, Button, Drawer, Popover,
 Box, Modal, TextField, Backdrop, Fade } from "@material-ui/core";
+import { DashboardSharp, ExitToApp } from "@mui/icons-material";
 
 import { NavLink } from "react-router-dom";
 import {Link} from "@material-ui/core";
@@ -20,12 +21,14 @@ import symbol_ae from './ae symbol.png';
 import symbol_cart from './e store symbol.jpg';
 import symbol_chatbot from './chatbot symbol.png';
 
-import icon from './home_icon.png';
+import icon from './2111125.png';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
         height: '50px',
         border_bottom: `1px solid ${theme.palette.divider}`,
+        position: 'fixed',
+        
     },
     link: {
         margin: theme.spacing(1, 1.5),
@@ -87,18 +90,6 @@ export default function Bar() {
   const open2 = Boolean(anchorEl);
   const id = open2 ? 'simple-popover' : undefined;
 
-    // const handleLogin = () => {
-    //     if (localStorage.getItem('access_token') !== null){
-    //         setIsLog(true);
-    //     };
-    // }
-
-    // const handleLogOut = () => {
-    //     if (localStorage.getItem('access_token') === null){
-    //         setIsLog(false);
-    //     };
-    // }
-
     useEffect(() => {
         const id = setInterval(() =>{
             const token = localStorage.getItem('access_token');
@@ -155,13 +146,6 @@ export default function Bar() {
 
     const handleChanges = (e) => {
 
-    //     const regex = /^[1-9]\d*$/;
-    // if (regex.test(e.target.value)) {
-    //   setB(e.target.value);
-    // } else {
-    //   setB("");
-    // }
-
         setB({
             ...a,
             [e.target.name]: e.target.value
@@ -207,6 +191,7 @@ export default function Bar() {
             <CssBaseline />
                 
                 <AppBar
+                id="app-bar"
                 position="sticky"
                 color="white"
                 elevation={0}
@@ -227,9 +212,9 @@ export default function Bar() {
                     </div>
 
                     <div class='container-links'>
-                        <Link id="link-1" underline="hover" style={{fontFamily: 'Fira Code'}} component={NavLink}
+                        <Link id="link-1" underline="none" style={{fontFamily: 'Fira Code'}} component={NavLink}
                         to='/about'>ABOUT</Link>
-                        <Link id="link-2" underline="hover" style={{fontFamily: 'Fira Code'}}
+                        <Link id="link-2" underline="none" style={{fontFamily: 'Fira Code'}}
                         onMouseEnter={handleClick}
                         >FEATURES</Link>
 
@@ -299,17 +284,17 @@ export default function Bar() {
                             </Box>
                             </Popover>
 
-                        <Link component={NavLink} to="contact-us" id="link-3" underline="hover" style={{fontFamily: 'Fira Code'}}>CONTACT</Link>
+                        <Link component={NavLink} to="contact-us" id="link-3" underline="none" style={{fontFamily: 'Fira Code'}}>CONTACT</Link>
                     </div>
                     
                     {isLog &&
-                    <Button className={classes.button} color="primary" variant="outlined"
-                    style={{marginLeft: '550px', marginBottom: '10px', backgroundColor: 'whitesmoke' , fontFamily: 'Fira Code',
+                    <Button className={classes.button} color="primary" variant="outlined" startIcon={<DashboardSharp />}
+                    style={{marginLeft: '535px', marginBottom: '10px', backgroundColor: 'gainsboro' , fontFamily: 'Fira Code',
                     fontWeight: 'normal', display: 'flexbox'}}
                     onClick={(e) => { 
                         e.preventDefault();
                         setIsDrawerOpen(true)}}
-                   
+                    
                     >Dashboard</Button>}
 
                     <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
@@ -362,12 +347,8 @@ export default function Bar() {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                     style={{textAlign: 'center'}}
-                    BackdropComponent={Backdrop}
-                    BackdropProps={{
-                        timeout: 500,
-                    }}
                     >   
-                        <Fade in={open}>
+                        
                         <div className={classes.paper}>
 
                         <Box sx={style} style={{backgroundImage: `url(${splash})`}}>
@@ -378,6 +359,7 @@ export default function Bar() {
         <form noValidate>
         <TextField
         required
+        variant="outlined"
         type="number"
         label="Enter a value"
         id="amount"
@@ -385,14 +367,18 @@ export default function Bar() {
         autoComplete="amount"
         value={a.amount}
         onChange={handleChanges}
+        onKeyDown={(evt) => (evt.key === "-") && evt.preventDefault()}
+        InputProps={{
+            inputProps: { min: 0 }
+          }}
         style={{fontFamily: 'Fira Code'}}
         ></TextField>
 
         <Typography style={{marginTop: '15px', marginBottom: '10px', fontSize: '14px', fontFamily: 'Fira Code', color: 'indigo'}}
-        >NOTE: MAX DEPOSIT VALUE = $1500 </Typography>
+        >NOTE: MAX DEPOSIT VALUE = $1500/DAY </Typography>
 
-        <Typography style={{fontSize: '12px', fontFamily: 'Fira Code', color: 'crimson'}}>EXCEPTIONS: NEGATIVE VALUES/NULL VALUES -
-        THIS WILL TRIGGER A 1 DAY TIME-OUT INTERVAL! </Typography>
+        <Typography style={{fontSize: '12px', fontFamily: 'Fira Code', color: 'crimson'}}>
+            EXCEPTIONS: NULL/FLOAT/OVER MAX. - WILL TRIGGER A 1 DAY TIME-OUT INTERVAL! </Typography>
         
         <Button
         type="submit"
@@ -404,15 +390,15 @@ export default function Bar() {
         </form>
                         </Box>
                         </div>
-                        </Fade>
+                        
                     </Modal>
                         </Box>
                     </Drawer>
                     
                     {isLog &&
-                   <Button to="/signout" className={classes.button} 
+                   <Button to="/signout" className={classes.button} id="signout-button" startIcon={<ExitToApp />}
                     href="#" color="primary" variant="outlined" component={NavLink}     
-                    style={{display:'flexbox', marginLeft: '35px', marginBottom: '10px', backgroundColor: 'whitesmoke', fontWeight: 'normal',
+                    style={{display:'flexbox', marginLeft: '15px', marginBottom: '10px', backgroundColor: 'gainsboro', fontWeight: 'normal',
                     fontFamily: 'Fira Code'}}>
                         Sign Out
                     </Button>}

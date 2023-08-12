@@ -68,3 +68,35 @@
       </div>
 
     </Grid>
+
+
+
+
+				{/* <Grid item style={{ height: '100vh', backgroundImage: `url(${image})`, backgroundRepeat: 'no-repeat'}}>
+					
+					{data.pages.length > 0 &&
+						<Typography className='neon-text' style={{fontSize: '60px', display: 'flexbox' , fontFamily: 'Source Code Pro', fontStyle: 'oblique'}}>
+							{data.pages[0].title}</Typography>}
+
+					{data.pages.length > 0 &&
+						<Typography className='neon-text2' style={{fontSize: '25px', 
+						display: 'flexbox' , marginTop: '120px',fontFamily: 'Fira Code', marginRight: '20px'}}>
+							{data.pages[0].body}
+						</Typography>}
+
+						{data.pages.length > 0 &&
+						<Typography className='neon-text' style={{fontSize: '60px', display: 'flexbox' , fontFamily: 'Source Code Pro', fontStyle: 'oblique'}}>
+							{data.pages[1].title}</Typography>}
+														
+						{data.pages.length > 0 &&
+						<Typography className='neon-text2' style={{fontSize: '25px', 
+						display: 'flexbox' , marginTop: '120px',fontFamily: 'Fira Code', marginRight: '20px'}}>
+							{data.pages[1].body}
+						</Typography>}
+					
+					<div class="neon-btn">
+					<button class="btn one" style={{fontSize: '20px', fontFamily: 'Fira Code'}}>AE-COIN PLATFORM</button>
+					<button  class="btn two" 
+					style={{fontSize: '20px', fontFamily: 'Fira Code'}}>
+						E-STORE</button>
+					</div> */}

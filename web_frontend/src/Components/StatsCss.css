@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+  
+}
+
+.counter-section {
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.counter-container {
+
+  text-align: center;
+  margin-left: 140px;
+  margin-top: 60px;
+}
+
+.counter {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #dccff5;
+}
