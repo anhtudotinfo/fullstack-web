@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axiosInstance from '../Axios';
 import './LandingPage.css'
 import Stats from "./Stats";
+import { useHistory, NavLink } from 'react-router-dom';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
@@ -36,8 +37,14 @@ const useStyles = makeStyles((theme) => ({
 const theme = createTheme()
 
 export default function LandingPage() {
+	const history = useHistory();
 
-    const classes = useStyles();
+	const handleClicktoCrypto = (e) => {
+		e.preventDefault();
+		history.push("/crypto-page");
+	}
+
+    // const classes = useStyles();
     
     const [data, setData] = useState({ pages: [] });
 
@@ -69,7 +76,7 @@ export default function LandingPage() {
 					<p id="p" style={{fontFamily: 'Source Code Pro', display: 'grid', fontStyle: 'oblique'}}>
 						{data.pages[0].body}</p>}
 
-            <button class="btn one" style={{fontSize: '20px', fontFamily: 'Fira Code',borderRadius: '15px'}}>Start Mining</button>
+            <button class="btn one" onClick={handleClicktoCrypto} style={{fontSize: '20px', fontFamily: 'Fira Code',borderRadius: '15px'}}>Start Mining</button>
         </div>
         <img id="image-one" src={crypto_splash} alt="" style={{borderRadius: '20px'}}/>
     </section>

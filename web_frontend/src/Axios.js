@@ -1,6 +1,8 @@
-import axios from "axios";
+import axios, { Axios } from "axios";
 
 const baseURL = 'http://127.0.0.1:8000/api/';
+
+let isRefreshing = false; // Variable to track refresh attempts
 
 const axiosInstance = axios.create({
     baseURL: baseURL,
@@ -33,8 +35,8 @@ axiosInstance.interceptors.response.use(
 
 		if (
 			error.response.status === 401 &&
-			originalRequest.url === baseURL + 'token/refresh/'
-		) {
+			originalRequest.url === baseURL + 'token/refresh/')
+		 {
 			window.location.href = '/';
 			return Promise.reject(error);
 		}
@@ -54,31 +56,38 @@ axiosInstance.interceptors.response.use(
 				console.log(tokenParts.exp);
 
 				if (tokenParts.exp > now) {
-					return axiosInstance
-						.post('/token/refresh/', { refresh: refreshToken })
-						.then((response) => {
-							localStorage.setItem('access_token', response.data.access);
-							localStorage.setItem('refresh_token', response.data.refresh);
-
-							axiosInstance.defaults.headers['Authorization'] =
-								'JWT ' + response.data.access;
-							originalRequest.headers['Authorization'] =
-								'JWT ' + response.data.access;
-
-							return axiosInstance(originalRequest);
-						})
-						.catch((err) => {
-							console.log(err);
-						});
-				} else {
+					if (!isRefreshing) {
+					  isRefreshing = true; // Set flag to indicate refresh attempt
+		  
+					  try {
+						const response = await axiosInstance.post('/token/refresh/', { refresh: refreshToken });
+						localStorage.setItem('access_token', response.data.access);
+						localStorage.setItem('refresh_token', response.data.refresh);
+		  
+						axiosInstance.defaults.headers['Authorization'] = 'JWT ' + response.data.access;
+						originalRequest.headers['Authorization'] = 'JWT ' + response.data.access;
+		  
+						isRefreshing = false; // Reset the refresh flag
+						return axiosInstance(originalRequest); // Retry the original request
+					  } catch (refreshError) {
+						isRefreshing = false; // Reset the refresh flag even if refresh fails
+						console.log(refreshError);
+						window.location.href = '/';
+					  }
+					} else {
+					  // Avoid infinite loop by redirecting if another refresh attempt is ongoing
+					  console.log('Another refresh attempt is ongoing');
+					  return Promise.reject(error);
+					}
+				  } else {
 					console.log('Refresh token is expired', tokenParts.exp, now);
 					window.location.href = '/';
+				  }
+				} else {
+				  console.log('Refresh token not available.');
+				  window.location.href = '/';
 				}
-			} else {
-				console.log('Refresh token not available.');
-				window.location.href = '/';
-			}
-		}
+			  }
 
 		// specific error handling done elsewhere
 		return Promise.reject(error);
@@ -86,3 +95,38 @@ axiosInstance.interceptors.response.use(
 );
 
 export default axiosInstance;
+
+
+// original 
+
+// 	if (tokenParts.exp > now) {
+// 		return axiosInstance
+// 			.post('/token/refresh/', { refresh: refreshToken })
+// 			.then((response) => {
+// 				localStorage.setItem('access_token', response.data.access);
+// 				localStorage.setItem('refresh_token', response.data.refresh);
+
+// 				axiosInstance.defaults.headers['Authorization'] =
+// 					'JWT ' + response.data.access;
+// 				originalRequest.headers['Authorization'] =
+// 					'JWT ' + response.data.access;
+
+// 				return axiosInstance(originalRequest);
+// 			})
+// 			.catch((err) => {
+// 				console.log(err);
+// 			});
+// 	} else {
+// 		console.log('Refresh token is expired', tokenParts.exp, now);
+// 		window.location.href = '/';
+// 	}
+// } else {
+// 	console.log('Refresh token not available.');
+// 	window.location.href = '/';
+// }
+// }
+
+// // specific error handling done elsewhere
+// return Promise.reject(error);
+// }
+// );

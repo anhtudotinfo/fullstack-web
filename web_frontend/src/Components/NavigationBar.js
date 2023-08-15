@@ -314,7 +314,7 @@ export default function Bar() {
 
                     {data.value.map(b => (
                         <Typography key={b} style={{padding: '5px' , fontFamily: 'Fira Code'}}>Bank Account Balance{' : '}
-                            {b.bank_account_balance}</Typography>
+                            $ {b.bank_account_balance}</Typography>
                     ))}
 
                     {data2.value2.map(c => (
