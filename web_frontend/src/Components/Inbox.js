@@ -10,11 +10,20 @@ import image from './image.jpg'
 
 
 export default function Inbox() {
+    // const [myId, getmyId] = useState({ v: [] });
 
-    // const handleTest = async () => {
+    // const handleTest = () => {
     //     try{
-    //         const response = await axiosInstance.put(`plans/one/93/`, {});
-    //         console.log(response.data);
+
+    //         axiosInstance.get(`bank-accounts/view`).then((res) =>{
+    //             getmyId({
+    //                 v : res.data,
+    //             });
+    //             const user_id = res.data.map(s => (s.user_bank_acc_id));
+    //             const response = axiosInstance.put(`plans/two/`+user_id+`/`, {}); // works even after user logs out
+    //             // console.log(response.data);
+    //         })
+
     //     }
     //     catch (error) {
     //         console.error(error);
@@ -58,6 +67,8 @@ const rowsPerPageOptions = [10, 20, 50];
 
             <Button to="/home" href="#" component={NavLink} variant="contained" color="secondary" startIcon={<ArrowBack/>} 
             style={{marginLeft: '20px', marginTop: '85px', fontFamily: 'Fira Code', backgroundColor: 'crimson'}}>Back</Button>
+
+            {/* <Button onClick={handleTest}>TEST</Button> */}
            
            <Typography className="neonText" style={{textAlign: 'center', fontSize: '32px', fontFamily: 'Fira Code'
         , color: 'seashell'}}>MY INBOX</Typography>

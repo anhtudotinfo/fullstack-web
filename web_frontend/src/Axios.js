@@ -25,7 +25,7 @@ axiosInstance.interceptors.response.use(
 		const originalRequest = error.config;
 
 		if (typeof error.response === 'undefined') {
-			alert(
+			console.log(
 				'A server/network error occurred. ' +
 					'Looks like CORS might be the problem. ' +
 					'Sorry about this - we will get it fixed shortly.'
@@ -73,6 +73,7 @@ axiosInstance.interceptors.response.use(
 						isRefreshing = false; // Reset the refresh flag even if refresh fails
 						console.log(refreshError);
 						window.location.href = '/';
+						alert("Infinite loop created. Please login again.");
 					  }
 					} else {
 					  // Avoid infinite loop by redirecting if another refresh attempt is ongoing

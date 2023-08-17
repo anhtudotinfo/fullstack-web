@@ -173,7 +173,7 @@ export default function Bar() {
         window.location.reload();
         })
     }
-
+    
     const redirect = () => {
         const is_token = localStorage.getItem('access_token');
         if (is_token) {
@@ -378,7 +378,7 @@ export default function Bar() {
         >NOTE: MAX DEPOSIT VALUE = $1500/DAY </Typography>
 
         <Typography style={{fontSize: '12px', fontFamily: 'Fira Code', color: 'crimson'}}>
-            EXCEPTIONS: NULL/FLOAT/OVER MAX. - WILL TRIGGER A 1 DAY TIME-OUT INTERVAL! </Typography>
+            EXCEPTIONS: NULL/FLOAT/OVER $1500. - WILL TRIGGER A 1 DAY TIME-OUT INTERVAL! </Typography>
         
         <Button
         type="submit"

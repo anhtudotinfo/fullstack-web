@@ -29,6 +29,10 @@ const theme = createTheme()
 
 export default function App() {
 
+localStorage.removeItem('access_token'); // used to remove tokens 
+localStorage.removeItem('refresh_token');
+axiosInstance.defaults.headers['Authorization'] = null;
+
   const history = useHistory();
 
   const initialFormData = Object.freeze({
