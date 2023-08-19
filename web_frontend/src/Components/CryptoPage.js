@@ -9,7 +9,7 @@ import gold from './gold.jpg';
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJs, registerables  } from "chart.js";
 import { CategoryScale, LinearScale, PointElement } from "chart.js";
-import { Typography, Grid, Button } from "@mui/material";
+import { Grid, Button } from "@mui/material";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -33,8 +33,83 @@ export default function CryptoPage() {
         setOpen(false);
     };
 
+    const [myId_2, getmyId_2] = useState({ v_2: [] });
 
-    
+    const [myId_3, getmyId_3] = useState({ v_3: [] });
+    const [myId_4, getmyId_4] = useState({ v_4: [] });
+    const [myId_5, getmyId_5] = useState({ v_5: [] });
+
+    const handleConversion = (e) => {
+      e.preventDefault();
+      
+      axiosInstance.get(`bank-accounts/view`).then((res) => {
+        getmyId_2({
+            v_2: res.data,
+        });
+        const user_id_2 = res.data.map(p => (p.user_bank_acc_id)); // to get the current user_id
+
+        axiosInstance.get(`stock-market-exchange/convert/`+user_id_2+`/`);
+        axiosInstance.put(`stock-market-exchange/convert/`+user_id_2+`/`);
+        
+      alert("Operation Complete!");
+      });
+      
+    }
+
+    const handlePlanOne = (e) => {
+      e.preventDefault();
+
+      try {
+      axiosInstance.get(`bank-accounts/view`).then((res) => {
+        getmyId_3({
+          v_3: res.data,
+        });
+        const user_id_3 = res.data.map(p => (p.user_bank_acc_id));
+
+        axiosInstance.put(`plans/one/`+user_id_3+`/`, {});
+      })
+      
+      } catch (error) {
+        alert(error);
+      }
+    }
+
+    const handlePlanTwo = (e) => {
+      e.preventDefault();
+
+      try {
+      axiosInstance.get(`bank-accounts/view`).then((res) => {
+        getmyId_4({
+          v_4: res.data,
+        });
+        const user_id_4 = res.data.map(p => (p.user_bank_acc_id));
+
+        axiosInstance.put(`plans/two/`+user_id_4+`/`, {});
+      })
+      
+      } catch (error) {
+        alert(error);
+      }
+    }
+
+    const handlePlanThree = (e) => {
+      e.preventDefault();
+
+      try {
+      axiosInstance.get(`bank-accounts/view`).then((res) => {
+        getmyId_5({
+          v_5: res.data,
+        });
+        const user_id_5 = res.data.map(p => (p.user_bank_acc_id));
+
+        axiosInstance.put(`plans/three/`+user_id_5+`/`, {});
+      })
+      
+      } catch (error) {
+        alert(error);
+      }
+    }
+
     useEffect(() => {
         axiosInstance.get('stock-market-exchange/display-all-data/').then((res) => {
             setChartData({
@@ -50,7 +125,7 @@ export default function CryptoPage() {
       labels: chartData.pages.map(r=>r.day),
       datasets: [
         {
-          label: "U$D vs.Æ [Show/Hide]",
+          label: "Æ vs. U$D[Show/Hide]",
           data: chartData.pages.map(s=>s.crypto_usd_rate),
           fill: true,
           backgroundColor: "rgba(75,192,192,0.2)",
@@ -71,8 +146,8 @@ export default function CryptoPage() {
       <p style={{textAlign: 'center', marginLeft: '30px',fontFamily: 'Fira Code'}}>DAY</p>
     </div>
     <div class="side-section" style={{display: 'flexbox', width: '719px',height: '700px',marginTop: '85px'}}>
-      <p style={{marginTop: '100px', marginLeft: '220px', fontFamily: 'Fira Code', fontSize: '17px'}}>Stock Market Trading - U$D vs. Æ</p>
-      <p style={{marginTop: '60px', marginLeft: '240px', fontFamily: 'Fira Code', fontSize: '14px'}}>Current Price of U$D vs. Æ = $86.7</p>
+      <p style={{marginTop: '100px', marginLeft: '220px', fontFamily: 'Fira Code', fontSize: '17px'}}>Stock Market Trading - Æ vs. U$D</p>
+      <p style={{marginTop: '60px', marginLeft: '240px', fontFamily: 'Fira Code', fontSize: '14px'}}>Current Price of Æ vs. U$D = $86.7</p>
       <p style={{marginTop: '60px', marginLeft: '60px', fontFamily: 'Fira Code', fontSize: '14px', display: 'flex', textAlign: 'center'}}>
       * Stock prices are indicative of the current trading value between
       Æ and U$D</p>
@@ -95,7 +170,8 @@ export default function CryptoPage() {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions style={{paddingBottom: '20px'}}>
-                  <Button color="secondary" variant="contained" style={{display: 'flex', fontFamily: 'Fira Code', marginRight: '280px'}}>Yes</Button>
+                  <Button onClick={handleConversion} color="secondary" variant="contained" style={{display: 'flex', fontFamily: 'Fira Code', marginRight: '280px'}}>
+                    Yes</Button>
                     <Button variant="outlined" onClick={handleToClose} style={{display: 'flex', fontFamily: 'Fira Code', marginRight: '75px'}}
                         color="primary" autoFocus>
                         Close
@@ -118,11 +194,12 @@ export default function CryptoPage() {
    <div class="banner-image" style={{backgroundImage: `url(${bronze})`, opacity: '75%'}}> </div>
    <h2 class="h2-card-1" style={{fontFamily: 'Fira Code'}}>PLAN 1</h2>
    <p style={{marginTop: '-30px', fontFamily: 'Fira Code', color: 'whitesmoke'}}>BRONZE</p>
-   <p id="p-card-1" style={{fontFamily: 'Fira Code'}}>HASH RATE: 20 TH/s <br/>
+   <p id="p-card-1" style={{fontFamily: 'Fira Code'}}>$500<br/>
+    HASH RATE: 20 TH/s <br/>
      DURATION: 5 SECONDS</p>
   </div>
   <div class="button-wrapper"> 
-    <button class="btn-card-1 fill" style={{fontFamily: 'Fira Code'}}>ACTIVATE</button>
+    <button class="btn-card-1 fill" onClick={handlePlanOne} style={{fontFamily: 'Fira Code'}}>ACTIVATE</button>
   </div>
     </div>
 
@@ -131,11 +208,12 @@ export default function CryptoPage() {
    <div class="banner-image-2" style={{backgroundImage: `url(${silver})`, opacity: '75%'}}> </div>
    <h2 class="h2-card-2" style={{fontFamily: 'Fira Code'}}>PLAN 2</h2>
    <p style={{marginTop: '-30px', fontFamily: 'Fira Code', color: 'whitesmoke'}}>SILVER</p>
-   <p id="p-card-2" style={{fontFamily: 'Fira Code'}}>HASH RATE: 40 TH/s <br/>
+   <p id="p-card-2" style={{fontFamily: 'Fira Code'}}>$1000<br/>
+    HASH RATE: 40 TH/s <br/>
      DURATION: 10 SECONDS</p>
   </div>
   <div class="button-wrapper-2"> 
-    <button class="btn-card-2 fill-2" style={{fontFamily: 'Fira Code'}}>ACTIVATE</button>
+    <button class="btn-card-2 fill-2" onClick={handlePlanTwo} style={{fontFamily: 'Fira Code'}}>ACTIVATE</button>
   </div>
     </div>
 
@@ -144,11 +222,12 @@ export default function CryptoPage() {
    <div class="banner-image-3" style={{backgroundImage: `url(${gold})`, opacity: '75%'}}> </div>
    <h2 class="h2-card-3" style={{fontFamily: 'Fira Code'}}>PLAN 3</h2>
    <p style={{marginTop: '-30px', fontFamily: 'Fira Code', color: 'whitesmoke'}}>GOLD</p>
-   <p id="p-card-3" style={{fontFamily: 'Fira Code'}}>HASH RATE: 80 TH/s<br/>
+   <p id="p-card-3" style={{fontFamily: 'Fira Code'}}>$2000<br/>
+    HASH RATE: 80 TH/s<br/>
      DURATION: 20 SECONDS</p>
   </div>
   <div class="button-wrapper-3"> 
-    <button class="btn-card-3 fill-3" style={{fontFamily: 'Fira Code'}}>ACTIVATE</button>
+    <button class="btn-card-3 fill-3" onClick={handlePlanThree} style={{fontFamily: 'Fira Code'}}>ACTIVATE</button>
   </div>
     </div>
     

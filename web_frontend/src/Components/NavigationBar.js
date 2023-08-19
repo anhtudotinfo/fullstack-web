@@ -106,10 +106,29 @@ export default function Bar() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [id_2, setId] = useState({ r: [] })
+    const [username, setUsername] = useState({ name: [] });
 
     const [data, setData] = useState({ value: [] });
 
     const [data2, setData2] = useState({ value2: [] });
+
+    useEffect(()=> {
+        if (localStorage.getItem('access_token') !==null){
+        axiosInstance.get(`bank-accounts/view`).then((res)=>{
+            setId({
+                r: res.data,
+            });
+            const user_id_one = res.data.map(i => (i.user_bank_acc_id));
+            axiosInstance.get(`user/user-info/`+user_id_one+`/`).then((res)=>{
+                setUsername({
+                    name: res.data,
+                })
+                console.log(res.data);
+            })
+        })
+    }
+    }, [setUsername, isDrawerOpen])
 
     useEffect(()=> {
         if (localStorage.getItem('access_token') !==null){ 
@@ -304,6 +323,10 @@ export default function Bar() {
                             
                             <Typography variant="h6" component='div' style={{paddingBottom: '15px',marginTop: '5px', fontFamily: 'Fira Code', 
                             fontStyle: 'italic'}}>USER DASHBOARD</Typography>
+
+                            <Typography variant="h8" component='div' style={{marginTop: '5px', fontFamily: 'Fira Code'}}>
+                                {username.name.user_name}
+                            </Typography>
 
                             <hr></hr>
 

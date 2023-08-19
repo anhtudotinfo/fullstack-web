@@ -10,25 +10,6 @@ import image from './image.jpg'
 
 
 export default function Inbox() {
-    // const [myId, getmyId] = useState({ v: [] });
-
-    // const handleTest = () => {
-    //     try{
-
-    //         axiosInstance.get(`bank-accounts/view`).then((res) =>{
-    //             getmyId({
-    //                 v : res.data,
-    //             });
-    //             const user_id = res.data.map(s => (s.user_bank_acc_id));
-    //             const response = axiosInstance.put(`plans/two/`+user_id+`/`, {}); // works even after user logs out
-    //             // console.log(response.data);
-    //         })
-
-    //     }
-    //     catch (error) {
-    //         console.error(error);
-    //     }
-    // }
 
     const [dataInbox, setDataInbox] = useState({ val: [] });
 
@@ -111,3 +92,25 @@ const rowsPerPageOptions = [10, 20, 50];
     );
 
 }
+
+// test 
+
+    // const [myId, getmyId] = useState({ v: [] });
+
+    // const handleTest = () => {
+    //     try{
+
+    //         axiosInstance.get(`bank-accounts/view`).then((res) =>{
+    //             getmyId({
+    //                 v : res.data,
+    //             });
+    //             const user_id = res.data.map(s => (s.user_bank_acc_id));
+    //             const response = axiosInstance.put(`plans/two/`+user_id+`/`, {}); // works even after user logs out
+    //             // console.log(response.data);
+    //         })
+
+    //     }
+    //     catch (error) {
+    //         console.error(error);
+    //     }
+    // }
