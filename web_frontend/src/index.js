@@ -16,6 +16,7 @@ import About from './Components/About';
 import LearnMore from './Components/LearnMore';
 import ContactUs from './Components/ContactUs';
 import CryptoPage from './Components/CryptoPage';
+import StorePage from './Components/StorePage';
 import Footer from './Components/Footer';
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -36,6 +37,7 @@ const routing = (
           {/* <Route exact path="/dashboard" component={Dashboard}/> not used */}
           <Route exact path="/inbox" component={Inbox}/>
           <Route exact path="/crypto-page" component={CryptoPage} />
+          <Route exact path="/e-store" component={StorePage}/>
           <Route exact path="/about" component={About}/>
           <Route exact path="/learnmore" component={LearnMore}/>
           <Route exact path="/contact-us" component={ContactUs}/>

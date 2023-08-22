@@ -44,6 +44,11 @@ export default function LandingPage() {
 		history.push("/crypto-page");
 	}
 
+	const handleClicktoStore = (e) => {
+		e.preventDefault();
+		history.push("/e-store");
+	}
+
     // const classes = useStyles();
     
     const [data, setData] = useState({ pages: [] });
@@ -98,7 +103,7 @@ export default function LandingPage() {
 				{data.pages[1].body}
 			</p>}
 
-            <button class="btn two" 
+            <button class="btn two" onClick={handleClicktoStore}
 					style={{fontSize: '20px', fontFamily: 'Fira Code',borderRadius: '15px'}}>
 						Buy Microtransactions</button>
         </div>
