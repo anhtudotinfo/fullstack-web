@@ -51,14 +51,14 @@ export default function About() {
    
             <h1 contenteditable style={{fontFamily: 'Fira Code'}}>about us</h1>
             <p id="p1"
-            style={{fontSize: '20px', fontFamily: 'Fira Code', color: 'darkturquoise'}}
+            style={{fontSize: '20px', fontFamily: 'Fira Code', color: 'seashell'}}
             >making crypto-mining easier</p>
             
-            <p id="p2" style={{fontFamily: 'Fira Code', fontSize:'20px', marginBottom: '300px', marginLeft: '-340px', color: 'orangered'}}>
+            <p id="p2" style={{fontFamily: 'Fira Code', fontSize:'20px', marginBottom: '300px', marginLeft: '-340px', color: 'seashell'}}>
                 ever since 2023 we've been trying to build a good and reliable platform for end-users
             </p>
 
-            <p id="p3" style={{fontFamily: 'Fira Code', fontSize:'20px', marginBottom: '200px', marginLeft: '-1065px', color: 'orchid'}}>
+            <p id="p3" style={{fontFamily: 'Fira Code', fontSize:'20px', marginBottom: '200px', marginLeft: '-1065px', color: 'seashell'}}>
                 inspired by nonprofits and other various e-commerce platforms
             </p>
 

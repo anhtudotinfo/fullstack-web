@@ -33,3 +33,18 @@
 }
 
 
+.line-3{
+  
+  font-size: 120%;
+  white-space: nowrap;
+  overflow: hidden;
+  color: honeydew;
+
+}
+
+
+#purchasebtn {
+  background: linear-gradient(45deg, rgba(182,10,10,1) 15%, rgba(58,115,205,1) 88%);
+  
+}
+

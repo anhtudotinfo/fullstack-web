@@ -58,6 +58,7 @@ export default function CryptoPage() {
 
     const handlePlanOne = (e) => {
       e.preventDefault();
+      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 
       try {
       axiosInstance.get(`bank-accounts/view`).then((res) => {
@@ -76,6 +77,7 @@ export default function CryptoPage() {
 
     const handlePlanTwo = (e) => {
       e.preventDefault();
+      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 
       try {
       axiosInstance.get(`bank-accounts/view`).then((res) => {
@@ -94,6 +96,7 @@ export default function CryptoPage() {
 
     const handlePlanThree = (e) => {
       e.preventDefault();
+      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 
       try {
       axiosInstance.get(`bank-accounts/view`).then((res) => {

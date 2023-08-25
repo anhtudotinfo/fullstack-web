@@ -41,11 +41,13 @@ export default function LandingPage() {
 
 	const handleClicktoCrypto = (e) => {
 		e.preventDefault();
+		window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 		history.push("/crypto-page");
 	}
 
 	const handleClicktoStore = (e) => {
 		e.preventDefault();
+		window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 		history.push("/e-store");
 	}
 
