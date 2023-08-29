@@ -59,10 +59,10 @@ return (
   <div id="login-box">
     <div class="left-box">
       <h1 id="h1-register" style={{fontFamily: 'Fira Code'}}> Sign Up </h1>
-      <input id="input-register" style={{fontFamily: 'Fira Code'}} type="text" name="username_new" placeholder="Username" onChange={handlenewChange}/>
-      <input id="input-register" style={{fontFamily: 'Fira Code'}} type="text" name="email_new" placeholder="Email" required onChange={handlenewChange}/>
-      <input id="input-register" style={{fontFamily: 'Fira Code'}} type="password" name="password_new" placeholder="Password" required onChange={handlenewChange}/>
-      <input id="input-register" style={{fontFamily: 'Fira Code'}} type="submit" name="singup-button" placeholder="Sign Up" onClick={handleNewSubmit}/>
+      <input id="input-register" style={{fontFamily: 'Fira Code', textAlign: 'center'}} type="text" name="username_new" placeholder="Username" onChange={handlenewChange}/>
+      <input id="input-register" style={{fontFamily: 'Fira Code', textAlign: 'center'}} type="text" name="email_new" placeholder="Email" required onChange={handlenewChange}/>
+      <input id="input-register" style={{fontFamily: 'Fira Code', textAlign: 'center'}} type="password" name="password_new" placeholder="Password" required onChange={handlenewChange}/>
+      <input id="input-register" style={{fontFamily: 'Fira Code', textAlign: 'center'}} type="submit" name="singup-button" placeholder="Sign Up" onClick={handleNewSubmit}/>
     </div>
     <div class="right-box" style={{backgroundImage: `url(${reg_image})`, backgroundRepeat: 'no-repeat'}}>
     

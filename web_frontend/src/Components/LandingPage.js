@@ -3,6 +3,7 @@ import axiosInstance from '../Axios';
 import './LandingPage.css'
 import Stats from "./Stats";
 import { useHistory, NavLink } from 'react-router-dom';
+import Chatbot from "./Chatbot";
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
@@ -107,7 +108,7 @@ export default function LandingPage() {
 
             <button class="btn two" onClick={handleClicktoStore}
 					style={{fontSize: '20px', fontFamily: 'Fira Code',borderRadius: '15px'}}>
-						Buy Microtransactions</button>
+						Shop Microtransactions</button>
         </div>
     </section>
 </div>
@@ -117,6 +118,7 @@ export default function LandingPage() {
 	<Stats />
 </Grid>
 
+<Chatbot />
 			{/* </Grid> */}
 		</ThemeProvider>
 

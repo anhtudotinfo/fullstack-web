@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../Axios";
+import Chatbot from "./Chatbot";
 import './CryptoCss.css';
 import neon_bg from './neon-background.jpg';
 import bronze from './bronze.avif';
@@ -235,7 +236,7 @@ export default function CryptoPage() {
     </div>
     
 </div>
-
+<Chatbot />
       </Grid>
 
     </Grid>

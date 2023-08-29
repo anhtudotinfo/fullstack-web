@@ -122,12 +122,13 @@ axiosInstance.defaults.headers['Authorization'] = null;
 			<div class="sign-in-htm">
 				<div class="group">
 					<label for="user" class="label" style={{fontFamily:'Fira Code' ,fontSize: '16px'}}>Email Address</label>
-					<input id="email" style={{fontFamily:'Fira Code'}} type="text" name='email' class="input" onChange={handleChange} />
+					<input id="email" placeholder='Enter your email' style={{fontFamily:'Fira Code', textAlign: 'center'}} 
+					type="text" name='email' class="input" onChange={handleChange} />
 				</div>
 				<div class="group">
 					<label for="pass" class="label" style={{fontFamily:'Fira Code' ,fontSize: '16px'}}>Password</label>
-					<input id="password" style={{fontFamily:'Fira Code'}} type="password" class="input" data-type="password" 
-					name='password' onChange={handleChange}/>
+					<input id="password" style={{fontFamily:'Fira Code', textAlign: 'center'}} type="password" class="input" data-type="password" 
+					name='password' placeholder='Password' onChange={handleChange}/>
 
 				</div>
 
