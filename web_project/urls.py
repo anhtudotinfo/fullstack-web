@@ -44,6 +44,8 @@ urlpatterns = [
     path('api/', include('inbox.urls', namespace='inbox')),
 
     path('api/', include('bot.urls', namespace='bot')),
+
+    path('api/', include('custom_logs.urls', namespace='custom_logs')),
     
 
     path('admin/', admin.site.urls),

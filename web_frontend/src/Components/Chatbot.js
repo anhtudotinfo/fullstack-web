@@ -41,7 +41,6 @@ export default function Chatbot() {
         });
         
     }, [])
-    console.log(greetingMessage);
 
     return (
 
@@ -59,11 +58,11 @@ export default function Chatbot() {
 
         <Box sx={{ height: "100vh", display: "flex", flexDirection: 'column', minWidth: '35rem'}}>
       <Box sx={{ flexGrow: 1, overflow: "auto", p: 2}}>
-            <Typography variant="body1">{greetingMessage.message}</Typography>
+            <Typography variant="body1" style={{fontFamily: 'Fira Code'}}>{greetingMessage.message}</Typography>
 
         <div className="chat">
             {chat.map((chatMessage, index) => (
-                <div key={index} className={`message ${chatMessage.isUser ? 'user' : 'chatbot'}`}>
+                <div key={index} style={{fontFamily: 'Fira Code'}} className={`message ${chatMessage.isUser ? 'user' : 'chatbot'}`}>
                     {chatMessage.message} 
                     <p><hr /></p>
                 </div>
@@ -77,6 +76,7 @@ export default function Chatbot() {
           <Grid item xs={10}>
             <TextField
               fullWidth
+              variant="outlined"
               placeholder="Type a message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}

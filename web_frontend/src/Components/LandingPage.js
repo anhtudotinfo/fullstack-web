@@ -40,14 +40,12 @@ const theme = createTheme()
 export default function LandingPage() {
 	const history = useHistory();
 
-	const handleClicktoCrypto = (e) => {
-		e.preventDefault();
+	const handleClicktoCrypto = () => {
 		window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 		history.push("/crypto-page");
 	}
 
-	const handleClicktoStore = (e) => {
-		e.preventDefault();
+	const handleClicktoStore = () => {
 		window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 		history.push("/e-store");
 	}

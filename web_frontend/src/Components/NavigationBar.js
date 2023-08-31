@@ -154,6 +154,21 @@ export default function Bar() {
         }
     }, [setData2, isDrawerOpen]);
 
+    // logs
+
+    const [logData, setLogData] = useState({ logdataValue: [] });
+
+    useEffect(() => {
+        if (localStorage.getItem('access_token') !==null) {
+            axiosInstance.get(`logs/view`).then((res) => {
+                setLogData({
+                    logdataValue: res.data,
+                });
+                console.log(res.data);
+            })
+        }
+    }, [setLogData, isDrawerOpen])
+
     // deposit handle
 
     const initialData = Object.freeze({
@@ -362,6 +377,17 @@ export default function Bar() {
 
                      <Button className={classes.button} color="secondary" variant="contained" onClick={handleOpen}
                      style={{ display: 'flexbox', marginTop: '20px' ,width: '200px', fontSize: '14px' , fontFamily: 'Fira Code'}}>+ Bank Balance</Button>
+
+                     <hr style={{marginTop: '30px', marginBottom: '30px'}}></hr>
+
+                     <div className="logs" style={{fontFamily: 'Fira Code'}}> Recently by you:
+                        {logData.logdataValue.map((logs) => (
+                            <div key={logs}>
+                                <p key={logs} style={{fontFamily: 'Fira Code'}}>{logs.msg}</p>
+                            </div>
+                        ))
+                        }
+                        </div>
 
                     <Modal
                     className={`${classes.fadeIn}`}
