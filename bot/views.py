@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
 
 import nltk
 from nltk.stem import WordNetLemmatizer
@@ -18,7 +17,8 @@ stop_words = set(stopwords.words('english'))
 def chatbot(request):
 
     if request.method == 'GET':
-        response_a = "Hello! My name is Varana! I'm the integrated bot of this platform. Type 'help' for a list of available options."
+        response_a = """Hello! My name is Varana! I'm the integrated bot of this platform. Type 'help' for a list of available options. 
+        Use of correct punctuation is advised."""
         return Response({'message': response_a})
 
     message = request.data['message']
@@ -38,24 +38,18 @@ def chatbot(request):
         3. E-Store (Microtransactions)
         If you would like information on a specific topic from the above - please type in 1, 2 or 3 from the above."""
 
-    elif 'love' in words:
-        response = 'I am happy to see this from you!'
+    # elif 'love' in words:
+    #     response = 'I am happy to see this from you!'
+
+    elif 'hey' in words:
+        response = 'Hi! ;)'
 
     elif 'problem' in words:
         response = 'If you encounter any problems on this platform please feel free to contact us!'
 
-    elif 'hate' in words:
-        response = "I'm very sorry to see that you are experiencing this :( We really strive ourselves to deliver exceptional value."
+    # elif 'hate' in words:
+    #     response = "I'm very sorry to see that you are experiencing this :( We really strive ourselves to deliver exceptional value."
     
-    elif 'thanks' in words:
-        response = 'You are welcome!'
-
-    # elif 'thank' and 'you' in words:
-    #     response = 'You are welcome!'
-
-    elif 'beautiful' in words: 
-        response = 'Yes, everything is beautiful as with the art of creation.'
-
     elif '1' in words:
         response = """Crypto-mining: This is a process of validating and recording transactions on the Æ-Coin network.
         The main purpose is to validate transactions to prevent fraud and adding new blocks to the blockchain. This platform    
@@ -71,6 +65,37 @@ def chatbot(request):
         in which the end-user can purchase. Therefore the higher your crypto wallet balance is the better transactions can occur at
         any moment of the purchase. 
         """
+    
+    elif '5' in words:
+        response = """Well so I see you found out the secret option LOL. Anyways here it is(the joke): 
+        Two men broke into a drugstore and stole all the Viagra. The police put out an alert to be on the lookout for the two hardened criminals."""
+
+    elif any(word in ['Do', 'you', 'hate', 'me'] for word in words): # Phrases start here
+        response = 'Do I hate you? Naah. I am just a programmed AI bot built from someone\'s own intellectual knowledge.'
+
+    elif any(word in ['I', 'am', 'feeling', 'good', 'today'] for word in words): 
+        response = 'Good to know that you are keeping well!'
+
+    elif any(word in ['Do', 'you', 'love', 'me'] for word in words): 
+        response = 'Yes! I love you! Why not? You\'re amazing!'
+
+    elif any(word in ['Who', 'created', 'you'] for word in words):
+        response = 'My name is Varana. My developer, AkashS created me :)'
+    
+    elif any(word in ['Who', 'are', 'you'] for word in words): 
+        response = 'I am a simple chatbot! ;)'
+    
+    elif any(word in ['Tell', 'me', 'a', 'joke'] for word in words):
+        response = 'You want to hear a joke? Press 5 to continue...'
+
+    elif any(word in ['I', 'love', 'you'] for word in words):
+        response = 'Yeah I know. I love you too! Just like all other natural beings of this universe.'
+
+    elif any(word in ['thank', 'you', 'thanks'] for word in words):
+        response = 'You are welcome!'
+
+    elif any(word in ['You', 'are', 'beautiful'] for word in words):
+        response = 'Thank you very much! Same to you too! You are also beautiful!'
 
     else:
         response = 'I do not understand what you are saying. Please rephrase your question.'

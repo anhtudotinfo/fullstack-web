@@ -61,20 +61,16 @@ export default function Chatbot() {
       <Box sx={{ flexGrow: 1, overflow: "auto", p: 2}}>
             <Typography variant="body1">{greetingMessage.message}</Typography>
 
-
         <div className="chat">
             {chat.map((chatMessage, index) => (
                 <div key={index} className={`message ${chatMessage.isUser ? 'user' : 'chatbot'}`}>
                     {chatMessage.message} 
-                    <p></p>
+                    <p><hr /></p>
                 </div>
             ))}
 
         </div>
 
-
-
-            
       </Box>
       <Box sx={{ p: 2, backgroundColor: "background.default" }}>
         <Grid container spacing={2}>
