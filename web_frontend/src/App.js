@@ -51,8 +51,7 @@ axiosInstance.defaults.headers['Authorization'] = null;
 	
 	};
 
-  const handleSubmit = (event) => {
-		event.preventDefault();
+  const handleSubmit = () => {
 		axiosInstance
 			.post(`token/`, {
 				email: formData.email,

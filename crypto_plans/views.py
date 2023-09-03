@@ -105,19 +105,3 @@ class PlanThree(APIView):
             return Response({'message_3': 'success!'}, status=status.HTTP_200_OK)
         else:
             return Response(first_3.errors or second_3.errors or third_3.errors, status=status.HTTP_400_BAD_REQUEST)
-       
-    
-    
-
-
-
-
-
-    
-    
-
-        
-    
-
-
-

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Toolbar, Typography, CssBaseline, alpha, makeStyles, Button, Drawer, Popover,
 Box, Modal, TextField, Backdrop, Fade } from "@material-ui/core";
-import { DashboardSharp, ExitToApp } from "@mui/icons-material";
+import { DashboardSharp, ExitToApp, MailOutlineOutlined, MonetizationOnSharp } from "@mui/icons-material";
 
 import { NavLink } from "react-router-dom";
 import {Link} from "@material-ui/core";
@@ -189,6 +189,7 @@ export default function Bar() {
     const [myId, getmyId] = useState({ v: [] });
 
     const handleDeposit = (e) => {
+        let error_2
         e.preventDefault();
 
         axiosInstance.get(`bank-accounts/view`).then((res) => {
@@ -200,10 +201,23 @@ export default function Bar() {
 
         axiosInstance.get(`bank-accounts/edit/`+user_id+`/`);
 
+        try {
+            
         axiosInstance.put(`bank-accounts/edit/`+user_id+`/`, {
             bank_account_balance: a.amount,
-        });    
-        alert("Operation Complete!");
+        }).catch(error => {
+            if (error.response.status === 429) {
+                alert("\nOperation Failed! \nTimeout interval active! \nPlease try again later!");
+            }
+            if (error.response.status === 400) {
+                alert("Invalid amount! Timeout interval triggered!");
+            }
+            throw error
+        })
+    } catch (error) {
+        error_2 = error;
+        }    
+        setOpen(false);
         window.location.reload();
         })
     }
@@ -373,10 +387,11 @@ export default function Bar() {
                      <hr></hr>
 
                      <Button className={classes.button} color="secondary" variant="contained" component={NavLink} href="#" to="/inbox"
+                     startIcon={<MailOutlineOutlined />}
                      style={{ display: 'flexbox', marginTop: '20px' ,width: '200px', fontSize: '14px' , fontFamily: 'Fira Code'}}>My Inbox</Button>
 
-                     <Button className={classes.button} color="secondary" variant="contained" onClick={handleOpen}
-                     style={{ display: 'flexbox', marginTop: '20px' ,width: '200px', fontSize: '14px' , fontFamily: 'Fira Code'}}>+ Bank Balance</Button>
+                     <Button className={classes.button} color="secondary" variant="contained" onClick={handleOpen} startIcon={<MonetizationOnSharp />}
+                     style={{ display: 'flexbox', marginTop: '20px' ,width: '200px', fontSize: '14px' , fontFamily: 'Fira Code'}}>Bank Balance</Button>
 
                      <hr style={{marginTop: '30px', marginBottom: '30px'}}></hr>
 
@@ -424,7 +439,9 @@ export default function Bar() {
         ></TextField>
 
         <Typography style={{marginTop: '15px', marginBottom: '10px', fontSize: '14px', fontFamily: 'Fira Code', color: 'indigo'}}
-        >NOTE: MAX DEPOSIT VALUE = $1500/DAY </Typography>
+        >NOTE: MAX DEPOSIT VALUE = $1500 </Typography>
+        <Typography style={{marginTop: '15px', marginBottom: '10px', fontSize: '14px', fontFamily: 'Fira Code', color: 'indigo'}}
+        >{"["}1-DAY TIMEOUT INTERVAL{"]"}</Typography>
 
         <Typography style={{fontSize: '12px', fontFamily: 'Fira Code', color: 'crimson'}}>
             EXCEPTIONS: NULL/FLOAT/OVER $1500. - WILL TRIGGER A 1 DAY TIME-OUT INTERVAL! </Typography>

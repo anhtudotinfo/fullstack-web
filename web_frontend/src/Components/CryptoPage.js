@@ -40,9 +40,9 @@ export default function CryptoPage() {
     const [myId_4, getmyId_4] = useState({ v_4: [] });
     const [myId_5, getmyId_5] = useState({ v_5: [] });
 
-    const handleConversion = (e) => {
-      e.preventDefault();
-      
+    const handleConversion = () => { 
+      let error;
+
       axiosInstance.get(`bank-accounts/view`).then((res) => {
         getmyId_2({
             v_2: res.data,
@@ -50,12 +50,22 @@ export default function CryptoPage() {
         const user_id_2 = res.data.map(p => (p.user_bank_acc_id)); // to get the current user_id
 
         axiosInstance.get(`stock-market-exchange/convert/`+user_id_2+`/`);
-        axiosInstance.put(`stock-market-exchange/convert/`+user_id_2+`/`);
         
-      alert("Operation Complete!");
+        try{
+          
+          axiosInstance.put(`stock-market-exchange/convert/`+user_id_2+`/`).catch(err => {
+            if (err.response.status === 429) {
+              alert("\nOperation Failed! \nUser timed out! \nPlease try again later!");
+            }
+            throw err;
+          })
+        } catch (err) {
+          error = err
+        }
       });
-      
+      setOpen(false);
     }
+
 
     const handlePlanOne = (e) => {
       e.preventDefault();
@@ -109,8 +119,8 @@ export default function CryptoPage() {
         axiosInstance.put(`plans/three/`+user_id_5+`/`, {});
       })
       
-      } catch (error) {
-        alert(error);
+      } catch {
+        alert("Unable to perform operation!");
       }
     }
 

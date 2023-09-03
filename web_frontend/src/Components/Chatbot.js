@@ -89,6 +89,7 @@ export default function Chatbot() {
               color="primary"
               variant="contained"
               onClick={sendMessage}
+              style={{marginTop: '7px'}}
             >
               Send
             </Button>

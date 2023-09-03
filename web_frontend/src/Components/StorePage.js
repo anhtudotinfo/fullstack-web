@@ -83,8 +83,8 @@ export default function StorePage() {
 
       axiosInstance.put(`products/purchase/`+user_id_+`/`);
       
-    alert("Operation Complete!");
     });
+    setOpen(false);
   }
 
     useEffect(() => {
