@@ -55,7 +55,7 @@ export default function CryptoPage() {
           
           axiosInstance.put(`stock-market-exchange/convert/`+user_id_2+`/`).catch(err => {
             if (err.response.status === 429) {
-              alert("\nOperation Failed! \nUser timed out! \nPlease try again later!");
+              alert("\nOperation Failed! \nTimeout interval active! \nPlease try again later!");
             }
             throw err;
           })

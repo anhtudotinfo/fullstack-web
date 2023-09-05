@@ -71,7 +71,7 @@ def chatbot(request):
         Two men broke into a drugstore and stole all the Viagra. The police put out an alert to be on the lookout for the two hardened criminals."""
 
     elif any(word in ['Do', 'you', 'hate', 'me'] for word in words): # Phrases start here
-        response = 'Do I hate you? Naah. I am just a programmed AI bot built from someone\'s own intellectual knowledge.'
+        response = 'Do I hate you? Naah. I am just an AI bot programmed from someone\'s own intellectual knowledge.'
 
     elif any(word in ['I', 'am', 'feeling', 'good', 'today'] for word in words): 
         response = 'Good to know that you are keeping well!'

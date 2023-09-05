@@ -10,3 +10,13 @@
 	
 }
 
+#bot-button {
+	-webkit-transition: all .15s ease-in-out;
+	transition: all .15s ease-in-out;
+	border: 1px solid #fd9e22;
+	background-color: rgba(247,151,138,255);
+}
+#bot-button:hover {
+	box-shadow: 0 0 10px 0 #b7dfdb inset, 0 0 20px 2px #b7dfdb;
+	border: 3px solid #b7dfdb;
+  }

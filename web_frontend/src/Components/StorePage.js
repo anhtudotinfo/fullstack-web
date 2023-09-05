@@ -4,7 +4,7 @@ import Chatbot from "./Chatbot";
 import { useParams, useHistory, NavLink } from "react-router-dom";
 import { Grid, Link, Card, Typography, CardContent, CardMedia, Container, Button, 
 Dialog, DialogActions, DialogTitle, DialogContent, DialogContentText } from "@material-ui/core";
-import { Chat, Shop } from "@mui/icons-material";
+import { Shop } from "@mui/icons-material";
 import { makeStyles } from "@material-ui/core";
 import './StoreCss.css';
 
@@ -74,6 +74,7 @@ export default function StorePage() {
 
   const handlePurchase = (e) => {
     e.preventDefault();
+    let error;
 
     axiosInstance.get(`bank-accounts/view`).then((res) => {
       getmyId_({
@@ -81,8 +82,16 @@ export default function StorePage() {
       });
       const user_id_ = res.data.map(p => (p.user_bank_acc_id)); // to get the current user_id
 
-      axiosInstance.put(`products/purchase/`+user_id_+`/`);
-      
+      try{
+        axiosInstance.put(`products/purchase/`+user_id_+`/`).catch(err => {
+          if (err.response.status === 400) {
+            alert("Too low crypto balance! Please try again or acquire more crypto!");
+          }
+          throw err
+        })
+      } catch(err) {
+        error = err
+      }
     });
     setOpen(false);
   }

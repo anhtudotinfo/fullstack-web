@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Fab, Box, Dialog, Grid, Button, TextField, Container, Typography } from "@material-ui/core";
-import { FormGroup, FormControl } from "@material-ui/core";
+import { Fab, Box, Dialog, Grid, Button, TextField, Typography } from "@material-ui/core";
+import { ChatTwoTone } from "@mui/icons-material";
 
 import './ChatBot.css';
 import cc from './chatbot_icon.png';
@@ -46,7 +46,7 @@ export default function Chatbot() {
 
       <React.Fragment>
         <Box class="float">
-        <Fab variant="extended" size="medium" style={{backgroundColor: 'rgba(247,151,138,255)', fontFamily: 'Fira Code'}} 
+        <Fab variant="extended" size="medium" id="bot-button" style={{fontFamily: 'Fira Code'}} 
         onClick={handleOpenChatWindow}>
             <img src={cc}/>
            Open Varana
@@ -88,8 +88,9 @@ export default function Chatbot() {
               size="large"
               color="primary"
               variant="contained"
-              onClick={sendMessage}
               style={{marginTop: '7px'}}
+              onClick={sendMessage}
+              endIcon={<ChatTwoTone />}
             >
               Send
             </Button>
