@@ -27,14 +27,15 @@ class TestCreateUser(APITestCase):
         request = self.factory.post(self.url, sample_data)
         response = self.view(request)
 
-        self.assertEquals(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
 class TestUserInfo(APITestCase):
     
     def setUp(self):
-        self.factory_2 = APIRequestFactory()
-        self.view = UserInfoView.as_view()
-        self.url = 'user-info/'
+
+        # self.factory_2 = APIRequestFactory()
+        # self.view = UserInfoView.as_view()
+        # self.url = 'user-info/'
         self.user = NewUser.objects.create(email='aaa@email.com', password='password123!', user_name='aaa', id=100)
         self.client.force_login(self.user)
         

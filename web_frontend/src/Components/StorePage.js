@@ -117,8 +117,8 @@ export default function StorePage() {
             </div>
 
             <div class="type-3" style={{marginBottom: '-500px', marginTop: '-1290px', display: 'flex', 
-          justifyContent: 'center', alignContent: 'center', marginLeft: '500px'}}>
-              <Typography class="line-3" style={{fontFamily: "Fira Code"}}>All listed products below.
+          justifyContent: 'center', alignContent: 'center', marginLeft: '550px'}}>
+              <Typography class="line-3" style={{fontFamily: "Fira Code"}}>All products.
               To purchase a product please click on the Purchase button below.</Typography>
             </div>
 
