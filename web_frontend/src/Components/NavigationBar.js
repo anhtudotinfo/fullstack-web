@@ -179,7 +179,7 @@ export default function Bar() {
     const [a, setB] = useState(initialData);
 
     const handleChanges = (e) => {
-
+        e.preventDefault()
         setB({
             ...a,
             [e.target.name]: e.target.value
@@ -431,9 +431,11 @@ export default function Bar() {
         autoComplete="amount"
         value={a.amount}
         onChange={handleChanges}
-        onKeyDown={(evt) => (evt.key === "-") && evt.preventDefault()}
+        onPaste={handleChanges}
+        onKeyDown={(evt) => (evt.key === "-" || evt.key === "." || evt.key === ",") && evt.preventDefault()}
         InputProps={{
-            inputProps: { min: 0 }
+            inputProps: { min: 1, maxLenght: 4 }
+            
           }}
         style={{fontFamily: 'Fira Code'}}
         ></TextField>
@@ -444,7 +446,7 @@ export default function Bar() {
         >{"["}1-DAY TIMEOUT INTERVAL{"]"}</Typography>
 
         <Typography style={{fontSize: '12px', fontFamily: 'Fira Code', color: 'crimson'}}>
-            EXCEPTIONS: NULL/FLOAT/OVER $1500. - WILL TRIGGER A 1 DAY TIME-OUT INTERVAL! </Typography>
+            EXCEPTION: OVER $1500 - WILL TRIGGER A 1 DAY TIME-OUT INTERVAL! </Typography>
         
         <Button
         type="submit"

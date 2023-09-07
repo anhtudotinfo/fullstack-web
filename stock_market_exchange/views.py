@@ -28,10 +28,12 @@ class ConvertCryptoToUSD(APIView):
     permission_classes = [IsAuthenticated]
 
     def put(self, request, pk):
+
         a = BankAccountInfo.objects.get(pk=pk)
         b = CryptoWalletInfo.objects.get(pk=pk)
         one = A(instance=a, data=request.data)
         two = B(instance=b, data=request.data)
+        
         if one.is_valid() and two.is_valid():
             one.save()
             two.save()

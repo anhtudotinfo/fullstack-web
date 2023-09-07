@@ -161,7 +161,7 @@ export default function CryptoPage() {
     </div>
     <div class="side-section" style={{display: 'flexbox', width: '719px',height: '700px',marginTop: '85px'}}>
       <p style={{marginTop: '100px', marginLeft: '220px', fontFamily: 'Fira Code', fontSize: '17px'}}>Stock Market Trading - Æ vs. U$D</p>
-      <p style={{marginTop: '60px', marginLeft: '240px', fontFamily: 'Fira Code', fontSize: '14px'}}>Current Price of Æ vs. U$D = $86.7</p>
+      <p style={{marginTop: '60px', marginLeft: '190px', fontFamily: 'Fira Code', fontSize: '14px'}}>Current Exchange Rate of Æ vs. U$D = $86.7/(1 Æ)</p>
       <p style={{marginTop: '60px', marginLeft: '60px', fontFamily: 'Fira Code', fontSize: '14px', display: 'flex', textAlign: 'center'}}>
       * Stock prices are indicative of the current trading value between
       Æ and U$D</p>
@@ -179,7 +179,7 @@ export default function CryptoPage() {
                 <DialogTitle><p style={{display: 'flex', fontFamily: 'Fira Code', color: 'red'}}>Convert</p></DialogTitle>
                 <DialogContent>
                     <DialogContentText style={{fontFamily: 'Fira Code'}}>
-                    Do you want to convert all Æ coin to U$D? This process cannot be reversed.{" "}
+                    Do you want to convert all Æ coin to U$D? This process cannot be reversed. Please ensure that your balance is not 0 Æ{" "}
                     {"["}1 DAY TIMEOUT INTERVAL{"]"}
                     </DialogContentText>
                 </DialogContent>

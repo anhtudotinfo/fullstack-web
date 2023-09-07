@@ -164,7 +164,7 @@ export default function StorePage() {
                 <DialogContent>
                     <DialogContentText style={{fontFamily: 'Fira Code'}}>
                     Purchase a random product to acquire a unique microtransaction. Generally the higher your crypto balance, 
-                    the better the product. <br/> View all microtransaction codes in your Inbox.
+                    the better the product. <br/> View all microtransaction codes in your Inbox. 
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions style={{paddingBottom: '20px'}}>
