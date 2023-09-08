@@ -161,7 +161,7 @@ export default function CryptoPage() {
     </div>
     <div class="side-section" style={{display: 'flexbox', width: '719px',height: '700px',marginTop: '85px'}}>
       <p style={{marginTop: '100px', marginLeft: '220px', fontFamily: 'Fira Code', fontSize: '17px'}}>Stock Market Trading - Æ vs. U$D</p>
-      <p style={{marginTop: '60px', marginLeft: '190px', fontFamily: 'Fira Code', fontSize: '14px'}}>Current Exchange Rate of Æ vs. U$D = $86.7/(1 Æ)</p>
+      <p style={{marginTop: '60px', marginLeft: '190px', fontFamily: 'Fira Code', fontSize: '14px'}}>Current Exchange Rate Æ vs. U$D = $86.7/(1 Æ)</p>
       <p style={{marginTop: '60px', marginLeft: '60px', fontFamily: 'Fira Code', fontSize: '14px', display: 'flex', textAlign: 'center'}}>
       * Stock prices are indicative of the current trading value between
       Æ and U$D</p>

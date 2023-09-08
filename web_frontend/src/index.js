@@ -10,7 +10,6 @@ import Bar from './Components/NavigationBar';
 import SignOut from './Components/SignOut';
 import LandingPage from './Components/LandingPage';
 import Register from './Components/Register';
-import Dashboard from './Components/Dashboard'; // not used
 import Inbox from './Components/Inbox';
 import About from './Components/About';
 import LearnMore from './Components/LearnMore';
@@ -34,7 +33,6 @@ const routing = (
           <Route exact path="/" component={App} />
           <Route exact path="/home" component={LandingPage} />
           <Route exact path="/register" component={Register} />
-          {/* <Route exact path="/dashboard" component={Dashboard}/> not used */}
           <Route exact path="/inbox" component={Inbox}/>
           <Route exact path="/crypto-page" component={CryptoPage} />
           <Route exact path="/e-store" component={StorePage}/>

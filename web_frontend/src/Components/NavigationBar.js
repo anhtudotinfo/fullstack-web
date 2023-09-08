@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Toolbar, Typography, CssBaseline, alpha, makeStyles, Button, Drawer, Popover,
 Box, Modal, TextField, Backdrop, Fade } from "@material-ui/core";
-import { DashboardSharp, ExitToApp, MailOutlineOutlined, MonetizationOnSharp } from "@mui/icons-material";
+import { ExitToApp, MailOutlineOutlined, MonetizationOnSharp, MenuRounded } from "@mui/icons-material";
 
 import { NavLink } from "react-router-dom";
 import {Link} from "@material-ui/core";
@@ -336,14 +336,15 @@ export default function Bar() {
                     </div>
                     
                     {isLog &&
-                    <Button className={classes.button} color="primary" variant="outlined" startIcon={<DashboardSharp />}
-                    style={{marginLeft: '535px', marginBottom: '10px', backgroundColor: 'gainsboro' , fontFamily: 'Fira Code',
+                    <Button className={classes.button} color="primary" variant="outlined" startIcon={<MenuRounded/>}
+                    style={{marginLeft: '595px', marginBottom: '10px', backgroundColor: 'gainsboro' , fontFamily: 'Fira Code',
+                    paddingLeft: '15px', marginRight: '-50px', paddingTop: '6px', paddingBottom: '6px', borderRadius: '30px',
                     fontWeight: 'normal', display: 'flexbox'}}
                     onClick={(e) => { 
                         e.preventDefault();
                         setIsDrawerOpen(true)}}
                     
-                    >Dashboard</Button>}
+                    ></Button>}
 
                     <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
                         <Box p={2} width='400px' textAlign='center' role="presentation" 
@@ -466,7 +467,7 @@ export default function Bar() {
                     {isLog &&
                    <Button to="/signout" className={classes.button} id="signout-button" startIcon={<ExitToApp />}
                     href="#" color="primary" variant="outlined" component={NavLink}     
-                    style={{display:'flexbox', marginLeft: '15px', marginBottom: '10px', backgroundColor: 'gainsboro', fontWeight: 'normal',
+                    style={{display:'flexbox', marginLeft: '60px', marginBottom: '10px', backgroundColor: 'gainsboro', fontWeight: 'normal',
                     fontFamily: 'Fira Code'}}>
                         Sign Out
                     </Button>}

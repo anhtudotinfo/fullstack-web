@@ -75,7 +75,7 @@ export default function Chatbot() {
         <Grid container spacing={2}>
           <Grid item xs={10}>
             <TextField
-              fullWidth
+              style={{width: '450px'}}
               variant="outlined"
               placeholder="Type a message"
               value={message}
@@ -88,7 +88,7 @@ export default function Chatbot() {
               size="large"
               color="primary"
               variant="contained"
-              style={{marginTop: '7px'}}
+              style={{marginTop: '7px', width: '109px', marginLeft: '-25px'}}
               onClick={sendMessage}
               endIcon={<ChatTwoTone />}
             >

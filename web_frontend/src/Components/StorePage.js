@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../Axios";
 import Chatbot from "./Chatbot";
+import PurchaseDialog from "./SingleProductList";
 import { useParams, useHistory, NavLink } from "react-router-dom";
 import { Grid, Link, Card, Typography, CardContent, CardMedia, Container, Button, 
 Dialog, DialogActions, DialogTitle, DialogContent, DialogContentText } from "@material-ui/core";
@@ -127,8 +128,7 @@ export default function StorePage() {
             {productData.e.map((xx) => (
               <Grid item key={xx} xs={12} sm={8} md={2}>
                 <Card elevation={8} className={classes.root} style={{backgroundColor: 'wheat'}}
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}
-                >
+                  sx={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                   <CardContent style={{flexGrow: '1', justifyContent: 'space-between',display: 'flex', flexDirection: 'column'}}>
 
                     <Typography key={xx} style={{textAlign: 'center', fontFamily: "Fira Code"}} variant="h5" component="h2">
@@ -158,6 +158,8 @@ export default function StorePage() {
           style={{color: 'whitesmoke', marginBottom: '5px', marginTop: '20px', fontFamily: 'Fira Code'}}>
             Purchase A Product</Button>
             </div>
+
+              <PurchaseDialog />
 
             <Dialog open={open} onClose={handleToClose}>
                 <DialogTitle><p style={{display: 'flex', fontFamily: 'Fira Code', color: 'red'}}>Purchase</p></DialogTitle>
