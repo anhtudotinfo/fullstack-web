@@ -5,7 +5,7 @@ import PurchaseDialog from "./SingleProductList";
 import { useParams, useHistory, NavLink } from "react-router-dom";
 import { Grid, Link, Card, Typography, CardContent, CardMedia, Container, Button, 
 Dialog, DialogActions, DialogTitle, DialogContent, DialogContentText } from "@material-ui/core";
-import { Shop } from "@mui/icons-material";
+import { Shuffle } from "@mui/icons-material";
 import { makeStyles } from "@material-ui/core";
 import './StoreCss.css';
 
@@ -40,8 +40,9 @@ const useStyle = makeStyles({
     padding: 10,
     transition: 'box-shadow 0.2s',
     '&:hover': {
-      boxShadow: '0 0 55px darkturquoise', 
-    }, 
+      boxShadow: '0 0 25px darkturquoise', 
+    },
+    fontFamily: 'Fira Code',
   }
 })
 
@@ -118,9 +119,9 @@ export default function StorePage() {
             </div>
 
             <div class="type-3" style={{marginBottom: '-500px', marginTop: '-1290px', display: 'flex', 
-          justifyContent: 'center', alignContent: 'center', marginLeft: '550px'}}>
+          justifyContent: 'center', alignContent: 'center', marginLeft: '520px'}}>
               <Typography class="line-3" style={{fontFamily: "Fira Code"}}>All products.
-              To purchase a product please click on the Purchase button below.</Typography>
+              To purchase a product please choose from the two purchase options below.</Typography>
             </div>
 
             <Container style={{marginTop: '-1240px'}}>
@@ -154,15 +155,15 @@ export default function StorePage() {
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
           <Button className={classes.buttonPurchase} id="purchasebtn" variant="contained" 
           color="secondary"  onClick={handleClickToOpen} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
-          startIcon={hovered ? <Shop /> : null} 
-          style={{color: 'whitesmoke', marginBottom: '5px', marginTop: '20px', fontFamily: 'Fira Code'}}>
-            Purchase A Product</Button>
+          startIcon={hovered ? <Shuffle /> : null} 
+          style={{color: 'whitesmoke', marginBottom: '5px', marginTop: '20px', marginLeft: '950px', fontWeight: 'normal', fontFamily: 'Consolas'}}>
+            Purchase A Random Product</Button>
             </div>
 
               <PurchaseDialog />
 
             <Dialog open={open} onClose={handleToClose}>
-                <DialogTitle><p style={{display: 'flex', fontFamily: 'Fira Code', color: 'red'}}>Purchase</p></DialogTitle>
+                <DialogTitle><p style={{display: 'flex', fontFamily: 'Fira Code', color: 'red'}}>Buy a random product</p></DialogTitle>
                 <DialogContent>
                     <DialogContentText style={{fontFamily: 'Fira Code'}}>
                     Purchase a random product to acquire a unique microtransaction. Generally the higher your crypto balance, 

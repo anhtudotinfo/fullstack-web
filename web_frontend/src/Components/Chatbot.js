@@ -75,7 +75,7 @@ export default function Chatbot() {
         <Grid container spacing={2}>
           <Grid item xs={10}>
             <TextField
-              style={{width: '450px'}}
+              style={{width: '450px', fontFamily: 'Fira Code'}}
               variant="outlined"
               placeholder="Type a message"
               value={message}

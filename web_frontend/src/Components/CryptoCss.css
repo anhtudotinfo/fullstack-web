@@ -176,7 +176,7 @@ div.side-section > div:nth-child(4) > p {
 }
 
 .fill {
-  background: rgba(233, 210, 111, 0.9);
+  background: rgba(158, 152, 123, 0.9);
   color: rgba(255,255,255,0.95);
   filter: drop-shadow(0);
   font-weight: bold;
@@ -277,7 +277,7 @@ div.side-section > div:nth-child(4) > p {
 }
 
 .fill-2 {
-  background: rgba(230, 100, 230, 0.9);
+  background: rgba(165, 150, 75, 0.9);
   color: rgba(255,255,255,0.95);
   filter: drop-shadow(0);
   font-weight: bold;
@@ -380,7 +380,7 @@ div.side-section > div:nth-child(4) > p {
 }
 
 .fill-3 {
-  background: rgba(216, 104, 104, 0.685);
+  background: rgba(214, 180, 9, 0.9);
   color: rgba(255,255,255,0.95);
   filter: drop-shadow(0);
   font-weight: bold;

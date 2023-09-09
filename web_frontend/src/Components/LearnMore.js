@@ -21,7 +21,7 @@ export default function LearnMore() {
       </div>
       <div class="wrapper">
         <div class="feature feature-two" style={{backgroundColor: 'azure'}}>
-          <h2 class="feature__title" style={{fontFamily: 'Fira Code'}}>Secure Crypto Æ Mining</h2>
+          <h2 class="feature__title" style={{fontFamily: 'Fira Code'}}>Secure Æ Crypto Mining</h2>
           <p class="feature__desc" style={{fontFamily: 'Fira Code'}}>Offers premium security at unprecedented hash rates</p>
           <img class="feature__img" src="" alt=""/>
         </div>

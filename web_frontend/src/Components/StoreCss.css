@@ -38,13 +38,33 @@
   font-size: 120%;
   white-space: nowrap;
   overflow: hidden;
-  color: honeydew;
+  color: rgb(255, 255, 255);
 
 }
 
 
 #purchasebtn {
   background: linear-gradient(45deg, rgba(182,10,10,1) 15%, rgba(58,115,205,1) 88%);
-  
+  width: 280px;
 }
 
+#singlebuttonpurchase {
+  width: 120px;
+  margin-left: 200px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-color: wheat;
+  color: black;
+}
+
+
+#opencatalogbutton{ 
+  transition: 'box-shadow 0.2s';
+  width: 200px;
+  background-color: lavenderblush;
+  color: black;
+}
+
+#opencatalogbutton:hover {
+  box-shadow: 0 0 25px rgba(197, 65, 65, 0.836);
+}

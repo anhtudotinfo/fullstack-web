@@ -337,7 +337,7 @@ export default function Bar() {
                     
                     {isLog &&
                     <Button className={classes.button} color="primary" variant="outlined" startIcon={<MenuRounded/>}
-                    style={{marginLeft: '595px', marginBottom: '10px', backgroundColor: 'gainsboro' , fontFamily: 'Fira Code',
+                    style={{marginLeft: '595px', marginBottom: '10px', backgroundColor: 'honeydew' , fontFamily: 'Fira Code',
                     paddingLeft: '15px', marginRight: '-50px', paddingTop: '6px', paddingBottom: '6px', borderRadius: '30px',
                     fontWeight: 'normal', display: 'flexbox'}}
                     onClick={(e) => { 
@@ -434,7 +434,7 @@ export default function Bar() {
         onChange={handleChanges}
         onPaste={handleChanges}
         onKeyDown={(evt) => (evt.key === "-" || evt.key === "." || evt.key === ",") && evt.preventDefault()}
-        InputProps={{
+        InputProps={{ 
             inputProps: { min: 1, maxLenght: 4 }
             
           }}
@@ -467,9 +467,9 @@ export default function Bar() {
                     {isLog &&
                    <Button to="/signout" className={classes.button} id="signout-button" startIcon={<ExitToApp />}
                     href="#" color="primary" variant="outlined" component={NavLink}     
-                    style={{display:'flexbox', marginLeft: '60px', marginBottom: '10px', backgroundColor: 'gainsboro', fontWeight: 'normal',
+                    style={{display:'flexbox', marginLeft: '60px', marginBottom: '10px', backgroundColor: 'honeydew', fontWeight: 'bold',
                     fontFamily: 'Fira Code'}}>
-                        Sign Out
+                        Log Out
                     </Button>}
 
                 </Toolbar>
@@ -479,4 +479,3 @@ export default function Bar() {
         </React.Fragment>
     )
 }
-

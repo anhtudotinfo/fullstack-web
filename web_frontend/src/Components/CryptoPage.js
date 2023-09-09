@@ -68,60 +68,76 @@ export default function CryptoPage() {
 
 
     const handlePlanOne = (e) => {
+      let error;
       e.preventDefault();
       window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 
-      try {
       axiosInstance.get(`bank-accounts/view`).then((res) => {
         getmyId_3({
           v_3: res.data,
         });
         const user_id_3 = res.data.map(p => (p.user_bank_acc_id));
 
-        axiosInstance.put(`plans/one/`+user_id_3+`/`, {});
-      })
-      
-      } catch (error) {
-        alert(error);
-      }
+        try{
+          axiosInstance.put(`plans/one/`+user_id_3+`/`, {}).catch(err => {
+            if (err.response.status === 400) {
+              alert("You are already on another plan! Please wait until that plan is terminated!");
+            }
+            throw err;
+          })
+        } catch (err){
+          error = err;
+        }
+      });
     }
 
     const handlePlanTwo = (e) => {
+      let error;
       e.preventDefault();
       window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 
-      try {
       axiosInstance.get(`bank-accounts/view`).then((res) => {
         getmyId_4({
           v_4: res.data,
         });
         const user_id_4 = res.data.map(p => (p.user_bank_acc_id));
 
-        axiosInstance.put(`plans/two/`+user_id_4+`/`, {});
-      })
-      
-      } catch (error) {
-        alert(error);
-      }
+        try {
+          axiosInstance.put(`plans/two/`+user_id_4+`/`, {}).catch(err => {
+            if (err.response.status === 400) {
+              alert("You are already on another plan! Please wait until that plan is terminated!");
+            }
+            throw err;
+          })
+        } catch (err){
+          error = err;
+        }
+      });
     }
 
     const handlePlanThree = (e) => {
+      let error;
       e.preventDefault();
       window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 
-      try {
       axiosInstance.get(`bank-accounts/view`).then((res) => {
         getmyId_5({
           v_5: res.data,
         });
         const user_id_5 = res.data.map(p => (p.user_bank_acc_id));
 
-        axiosInstance.put(`plans/three/`+user_id_5+`/`, {});
-      })
-      
-      } catch {
-        alert("Unable to perform operation!");
-      }
+
+        try{
+          axiosInstance.put(`plans/three/`+user_id_5+`/`, {}).catch(err => {
+            if (err.response.status === 400) {
+              alert("You are already on another plan! Please wait until that plan is terminated!");
+            }
+            throw err;
+          })
+        } catch (err){
+          error = err;
+        }
+      });
     }
 
     useEffect(() => {
@@ -161,7 +177,7 @@ export default function CryptoPage() {
     </div>
     <div class="side-section" style={{display: 'flexbox', width: '719px',height: '700px',marginTop: '85px'}}>
       <p style={{marginTop: '100px', marginLeft: '220px', fontFamily: 'Fira Code', fontSize: '17px'}}>Stock Market Trading - Æ vs. U$D</p>
-      <p style={{marginTop: '60px', marginLeft: '190px', fontFamily: 'Fira Code', fontSize: '14px'}}>Current Exchange Rate Æ vs. U$D = $86.7/(1 Æ)</p>
+      <p style={{marginTop: '60px', marginLeft: '240px', fontFamily: 'Fira Code', fontSize: '14px'}}>Current Exchange Rate = $86.7/(1 Æ)</p>
       <p style={{marginTop: '60px', marginLeft: '60px', fontFamily: 'Fira Code', fontSize: '14px', display: 'flex', textAlign: 'center'}}>
       * Stock prices are indicative of the current trading value between
       Æ and U$D</p>
