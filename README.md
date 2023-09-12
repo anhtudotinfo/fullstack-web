@@ -25,6 +25,15 @@ Note -> The nltk library is a discrete package which means it installs and uses 
 * To start Django server use: manage.py runserver and to start the front-end Node(React) server use: npm start
 
 * For the Node packages/libraries please see the package.lock and package json files in the web_frontend folder.
+
+#### Superuser details:
+  akash@email.com 
+  password123
+  
+####  User details:
+  user3@email.com
+  testpass123
+
   
 ##### Things to note:
 
