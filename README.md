@@ -24,11 +24,12 @@ Note -> The nltk library is a discrete package which means it installs and uses 
 
 * To start Django server use: manage.py runserver and to start the front-end Node(React) server use: npm start
 
-* For the Node packages/libraries please see the package.lock and package json files in the web_frontend folder. 
-Things to note:
+* For the Node packages/libraries please see the package.lock and package json files in the web_frontend folder.
+  
+##### Things to note:
 
 - Small bug on front-end using Axios when you it tries to refresh the user access token it goes into an infinite loop, to reset this please restart both the back-end Django server and the Front-end Node(React) server. 
 
 ## Preview of the front-end landing page:
 
-![Capture_preview](https://github.com/akash93-cpu/fullstack-web/assets/78371200/296caac8-a0d3-463b-b60e-ecf697f37976)
+![Capture_preview](https://github.com/akash93-cpu/fullstack-web/assets/78371200/51a8d141-35f5-4925-9d01-1cb13007857d)
