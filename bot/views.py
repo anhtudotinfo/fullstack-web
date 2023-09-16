@@ -61,6 +61,7 @@ def chatbot(request):
 
     elif '3' in words:
         response = """The E-Store is a marketplace primarily for the purpose for end-users to purchase microtransaction codes.
+        Users have two purchase options namely, they can purchase individual products or choose a random product to purchase.
         This is how it works - it uses your crypto balance as a reference and from there determines the best suitable product-match
         in which the end-user can purchase. Therefore the higher your crypto wallet balance is the better transactions can occur at
         any moment of the purchase. 

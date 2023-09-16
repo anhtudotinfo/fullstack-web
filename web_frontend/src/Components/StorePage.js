@@ -41,8 +41,8 @@ const useStyle = makeStyles({
     transition: 'box-shadow 0.2s',
     '&:hover': {
       boxShadow: '0 0 25px darkturquoise', 
-    },
-    fontFamily: 'Fira Code',
+    }
+    
   }
 })
 
@@ -156,7 +156,7 @@ export default function StorePage() {
           <Button className={classes.buttonPurchase} id="purchasebtn" variant="contained" 
           color="secondary"  onClick={handleClickToOpen} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
           startIcon={hovered ? <Shuffle /> : null} 
-          style={{color: 'whitesmoke', marginBottom: '5px', marginTop: '20px', marginLeft: '950px', fontWeight: 'normal', fontFamily: 'Consolas'}}>
+          style={{color: 'whitesmoke', marginBottom: '5px', marginTop: '20px', marginLeft: '950px', fontWeight: 'normal'}}>
             Purchase A Random Product</Button>
             </div>
 
