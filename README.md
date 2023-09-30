@@ -20,7 +20,7 @@ Python package requirements:
 * whitenoise==6.2.0
 * cryptography==39.0.0
 
-Note -> The nltk library is a discrete package which means it installs and uses its own libraries and packages. You have to run nltk.download() from a Python terminal or in a Python script file if the nltk library requires you to do so and download the neccesary packages needed.
+Note -> The nltk library is a discrete package installer which means it installs and uses its own libraries. You have to run nltk.download() from a Python terminal or in a Python script file if the nltk library requires you to do so and download the neccesary packages needed.
 
 * To start Django server use: manage.py runserver and to start the front-end Node(React) server use: npm start
 

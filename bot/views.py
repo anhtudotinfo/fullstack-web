@@ -102,4 +102,3 @@ def chatbot(request):
         response = 'I do not understand what you are saying. Please rephrase your question.'
 
     return Response({'message': response})
-    
