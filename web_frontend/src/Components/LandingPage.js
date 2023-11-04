@@ -52,7 +52,7 @@ export default function LandingPage() {
 
     // const classes = useStyles();
     
-    const [data, setData] = useState({ pages: [] });
+    let [data, setData] = useState({ pages: [] });
 
     useEffect(() => {
         axiosInstance.get().then((res) => {

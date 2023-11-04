@@ -22,9 +22,9 @@ export default function CryptoPage() {
 
     ChartJs.register(CategoryScale, LinearScale, PointElement, ...registerables);
 
-    const [chartData, setChartData] = useState({ pages: [] });
+    let [chartData, setChartData] = useState({ pages: [] });
 
-    const [open, setOpen] = React.useState(false);
+    let [open, setOpen] = React.useState(false);
  
     const handleClickToOpen = () => {
         setOpen(true);
@@ -34,11 +34,11 @@ export default function CryptoPage() {
         setOpen(false);
     };
 
-    const [myId_2, getmyId_2] = useState({ v_2: [] });
+    let [myId_2, getmyId_2] = useState({ v_2: [] });
 
-    const [myId_3, getmyId_3] = useState({ v_3: [] });
-    const [myId_4, getmyId_4] = useState({ v_4: [] });
-    const [myId_5, getmyId_5] = useState({ v_5: [] });
+    let [myId_3, getmyId_3] = useState({ v_3: [] });
+    let [myId_4, getmyId_4] = useState({ v_4: [] });
+    let [myId_5, getmyId_5] = useState({ v_5: [] });
 
     const handleConversion = () => { 
       let error;

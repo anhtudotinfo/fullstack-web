@@ -106,12 +106,12 @@ export default function Bar() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [id_2, setId] = useState({ r: [] })
-    const [username, setUsername] = useState({ name: [] });
+    let [id_2, setId] = useState({ r: [] })
+    let [username, setUsername] = useState({ name: [] });
 
-    const [data, setData] = useState({ value: [] });
+    let [data, setData] = useState({ value: [] });
 
-    const [data2, setData2] = useState({ value2: [] });
+    let [data2, setData2] = useState({ value2: [] });
 
     useEffect(()=> {
         if (localStorage.getItem('access_token') !==null){
@@ -156,7 +156,7 @@ export default function Bar() {
 
     // logs
 
-    const [logData, setLogData] = useState({ logdataValue: [] });
+    let [logData, setLogData] = useState({ logdataValue: [] });
 
     useEffect(() => {
         if (localStorage.getItem('access_token') !==null) {
@@ -186,7 +186,7 @@ export default function Bar() {
         });
     };
 
-    const [myId, getmyId] = useState({ v: [] });
+    let [myId, getmyId] = useState({ v: [] });
 
     const handleDeposit = (e) => {
         let error_2

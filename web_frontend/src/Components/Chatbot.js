@@ -10,9 +10,9 @@ export default function Chatbot() {
 
     const [openWindow, setOpenWindow] = useState(false);
 
-    const [greetingMessage, setGreetingMessage] = useState('');
-    const [message, setMessage] = useState('');
-    const [chat, setChat] = useState([]);
+    let [greetingMessage, setGreetingMessage] = useState('');
+    let [message, setMessage] = useState('');
+    let [chat, setChat] = useState([]);
 
     const handleOpenChatWindow = () => {
         setOpenWindow(true);
@@ -24,7 +24,7 @@ export default function Chatbot() {
 
     const sendMessage = async () => {
         // send a POST request to the chatbot API with the user's message
-        const response = await axios.post('http://localhost:8000/api/chatbot/', { message });
+        let response = await axios.post('http://localhost:8000/api/chatbot/', { message });
     
         // update the chat state with the chatbot's response
         setChat([...chat, { message, isUser: true }]);

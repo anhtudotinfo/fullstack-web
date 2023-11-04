@@ -41,7 +41,7 @@ def chatbot(request):
     # elif 'love' in words:
     #     response = 'I am happy to see this from you!'
 
-    elif 'hey' in words:
+    elif any(word in['hey' , 'hi' , 'hello'] for word in words):
         response = 'Hi! ;)'
 
     elif 'problem' in words:

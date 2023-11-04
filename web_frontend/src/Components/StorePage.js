@@ -50,9 +50,9 @@ export default function StorePage() {
 
     const classes = useStyle();
 
-    const [productData, setProductData] = useState({ e: [] });
+    let [productData, setProductData] = useState({ e: [] });
 
-    const [myId_, getmyId_] = useState({ v_: [] });
+    let [myId_, getmyId_] = useState({ v_: [] });
 
     const [hovered, setHovered] = React.useState(false);
 
@@ -156,7 +156,8 @@ export default function StorePage() {
           <Button className={classes.buttonPurchase} id="purchasebtn" variant="contained" 
           color="secondary"  onClick={handleClickToOpen} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
           startIcon={hovered ? <Shuffle /> : null} 
-          style={{color: 'whitesmoke', marginBottom: '5px', marginTop: '20px', marginLeft: '950px', fontWeight: 'normal'}}>
+          style={{color: 'whitesmoke', marginBottom: '5px', marginTop: '20px', marginLeft: '950px', fontWeight: 'normal',
+           fontFamily: 'Fira Code'}}>
             Purchase A Random Product</Button>
             </div>
 

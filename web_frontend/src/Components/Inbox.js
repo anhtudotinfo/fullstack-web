@@ -11,7 +11,7 @@ import image from './image.jpg'
 
 export default function Inbox() {
 
-    const [dataInbox, setDataInbox] = useState({ val: [] });
+    let [dataInbox, setDataInbox] = useState({ val: [] });
 
     const [data, setData] = React.useState([
         "one",
